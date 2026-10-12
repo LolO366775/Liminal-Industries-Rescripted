@@ -1,0 +1,9 @@
+{
+  "id": "rescripted_gen",
+  "name": "Liminal Industries: Rescripted Generation",
+  "description": "An rewrite of the generation system of Liminal Industries",
+  "version": "1.0.0",
+  "authors": [
+    "Dusklore"
+  ]
+}

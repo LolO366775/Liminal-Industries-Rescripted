@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:chests",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/fermented_beetroot_drink",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/fermented_berry_drink",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/fermented_honey_drink",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/fermented_rice_drink",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/fermented_wheat_drink",
+          "weight": 1
+	}
+      ],
+      "rolls": 1
+    }
+  ]
+}

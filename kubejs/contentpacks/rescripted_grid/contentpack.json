@@ -1,0 +1,9 @@
+{
+  "id": "rescripted_grid",
+  "name": "LI: Rescripted Grid",
+  "description": "An rewrite of the generation grid system for Liminal Industries: Rescripted",
+  "version": "1.0.0",
+  "authors": [
+    "Dusklore"
+  ]
+}

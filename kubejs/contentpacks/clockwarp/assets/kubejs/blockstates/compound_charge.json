@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "charges=0": {
+      "model": "kubejs:block/empty_compound_charge"
+    },
+    "charges=1": {
+      "model": "kubejs:block/compound_charge_1"
+    },
+    "charges=2": {
+      "model": "kubejs:block/compound_charge_2"
+    },
+    "charges=3": {
+      "model": "kubejs:block/compound_charge_3"
+    },
+    "charges=4": {
+      "model": "kubejs:block/compound_charge_infinite"
+    }
+  }
+}

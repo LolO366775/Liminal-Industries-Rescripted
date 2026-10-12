@@ -1,0 +1,15 @@
+{
+  "kubejs.ponder.tag.liminal_industries_ponders": "Liminal Industries",
+  "kubejs.ponder.tag.liminal_industries_ponders.description": "Demonstrations related to Liminal Industries: Rescripted content",
+  "kubejs.ponder.inspecting_carpet.header": "Inspecting Carpet",
+  "kubejs.ponder.inspecting_carpet.text_1": "A spyglass will show you if truffles can be harvested from a carpet",
+  "kubejs.ponder.inspecting_carpet.text_2": "\"The carpet here looks thoroughly picked over.\"",
+  "kubejs.ponder.inspecting_carpet.text_3": "If it appears anything but undisturbed, it\u0027s best to search somewhere else",
+  "kubejs.ponder.inspecting_carpet.text_4": "\"The carpet looks undisturbed.\"",
+  "kubejs.ponder.inspecting_carpet.text_5": "Carpets will return to an undisturbed state if you pick at other areas enough",
+  "kubejs.ponder.inspecting_carpet.text_6": "\"The carpet looks undisturbed.\"",
+  "kubejs.ponder.searching_for_truffles.header": "Searching For Truffles",
+  "kubejs.ponder.searching_for_truffles.text_1": "To search for a truffle, crawl and hold right click on a carpet",
+  "kubejs.ponder.searching_for_truffles.text_2": "After enough clicks, a truffle will pop out",
+  "kubejs.ponder.searching_for_truffles.text_3": "You cannot get truffles from the same area twice*"
+}

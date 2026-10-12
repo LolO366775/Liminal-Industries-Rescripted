@@ -1,0 +1,7 @@
+{
+  "base": "escalate_2",
+  "variants": [
+	"escalate_2_alt1",
+	"escalate_2_alt2"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "rescripted_features",
+  "name": "Liminal Industries: Rescripted Features",
+  "description": "The module for Rescripted rewriting the base pack features",
+  "version": "1.0.0",
+  "authors": [
+    "Dusklore"
+  ]
+}

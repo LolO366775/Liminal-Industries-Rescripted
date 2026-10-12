@@ -1,0 +1,10 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made with Blockbench",
+	"parent": "kubejs:block/fake_wallpaper/parent",
+	"textures": {
+		"1": "supplementaries:block/timber_frame",
+		"2": "kubejs:block/wallpapers/yellow3/bordered_bottom",
+		"particle": "supplementaries:block/timber_frame"
+	}
+}

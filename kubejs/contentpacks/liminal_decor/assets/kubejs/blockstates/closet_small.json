@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "kubejs:block/closet_small" },
+    "facing=east":  { "model": "kubejs:block/closet_small", "y": 90 },
+    "facing=south": { "model": "kubejs:block/closet_small", "y": 180 },
+    "facing=west":  { "model": "kubejs:block/closet_small", "y": 270 }
+  }
+}

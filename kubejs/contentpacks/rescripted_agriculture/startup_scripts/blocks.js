@@ -1,0 +1,26 @@
+StartupEvents.registry('block', event => {
+
+event.create('rotten_wallpaper_block').displayName('Rotten Wallpaper Block')
+		.fullBlock(true)
+		.material("wood")
+		.soundType("packed_mud")
+		.unbreakable()
+		.tagBlock('wither_immune')
+
+event.create('strange_bricks').displayName('Strange Bricks')
+		.fullBlock(true)
+		.material("stone")
+		.soundType("deepslate_bricks")
+		.unbreakable()
+		.tagBlock('wither_immune')
+		.property(BlockProperties.AGE_2)
+		
+event.create('infected_strange_bricks').displayName('Infected Strange Bricks')
+		.fullBlock(true)
+		.material("stone")
+		.soundType("packed_mud")
+		.tagBlock('minecraft:mineable/pickaxe')
+		.tagBlock('minecraft:needs_iron_tool')
+		.noDrops()
+		.hardness(5)
+})

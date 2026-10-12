@@ -1,0 +1,72 @@
+{
+  "type": "minecraft:gift",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:wild_beetroots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:wild_cabbages"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:wild_carrots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:wild_onions"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:wild_potatoes"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:wild_rice"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:wild_tomatoes"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:brown_mushroom_colony"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:red_mushroom_colony"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "miners_delight:wild_cave_carrots"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:torchflower"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:pitcher_plant"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "supplementaries:wild_flax"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "farmersdelight:sandy_shrub"
+        },
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:small_dripleaf"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "minecraft:gameplay/sniffer_digging"
+}

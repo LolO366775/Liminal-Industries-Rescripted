@@ -1,0 +1,197 @@
+{
+    "minecraft:overworld": {
+      "world_center": {
+        "x": -1000,
+        "z": -1000
+      },
+      "sectors": [
+	"fields",
+	"forest",
+	"ring_void",
+	"ring_outer",
+	"sculk",
+	"community",
+	"safe",
+	"zero"
+      ],
+      "key": {
+	"zero": {
+	  "code": 0,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 0,
+	      "max": 200
+	    }
+          ]
+	},
+	"safe": {
+	  "code": 1,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 50,
+	      "max": 600
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1501,
+	      "max": 1650
+	    }
+          ]
+	},
+	"community": {
+	  "code": 7,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 200,
+	      "max": 300
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1201,
+	      "max": 1350
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1501,
+	      "max": 1850
+	    },
+	    {
+	      "type": "distance",
+	      "min": 2501
+	    }
+          ]
+	},
+	"sculk": {
+	  "code": 2,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 200,
+	      "max": 300
+	    },
+	    {
+	      "type": "distance",
+	      "min": 500,
+	      "max": 850
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1001,
+	      "max": 1300
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1651,
+	      "max": 1650
+	    },
+	    {
+	      "type": "distance",
+	      "min": 2351,
+	      "max": 2500
+	    },
+	    {
+	      "type": "distance",
+	      "min": 2501
+	    }
+          ]
+	},
+	"ring_void": {
+	  "code": 6,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 901,
+	      "max": 950
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1901,
+	      "max": 1950
+	    }
+          ]
+	},
+	"ring_outer": {
+	  "code": 3,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 851,
+	      "max": 900
+	    },
+	    {
+	      "type": "distance",
+	      "min": 951,
+	      "max": 1000
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1851,
+	      "max": 1900
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1951,
+	      "max": 2000
+	    },
+	    {
+	      "type": "distance",
+	      "min": 2151,
+	      "max": 2500
+	    }
+          ]
+	},
+	"forest": {
+	  "code": 4,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 1351,
+	      "max": 1500
+	    }
+          ]
+	},
+	"fields": {
+	  "code": 5,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 2001,
+	      "max": 2400
+	    }
+          ]
+	}
+      }
+    },
+    "backrooms:poolrooms": {
+      "world_center": {
+        "x": 0,
+        "z": 0
+      },
+      "sectors": [
+	"poolrooms"
+      ],
+      "key": {
+	"poolrooms": {
+	  "code": 0,
+	  "generation": [
+	    {
+	      "type": "distance",
+              "min": 0
+	    }
+          ]
+	},
+    	"ocean_sea": {
+      	  "code": 1,
+      	  "generation": [
+            {
+              "type": "distance",
+              "min": 100
+            }
+          ]
+        }
+      }
+    }
+}

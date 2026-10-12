@@ -1,0 +1,19 @@
+{
+  "pattern": [
+    { 
+	"name": "ring_outer",
+	"type": "distance",
+	"size": 50
+    },
+    { 
+	"name": "ring_void",
+	"type": "distance",
+	"size": 50
+    },
+    { 
+	"name": "ring_outer",
+	"type": "distance",
+	"size": 50
+    }
+  ]
+}

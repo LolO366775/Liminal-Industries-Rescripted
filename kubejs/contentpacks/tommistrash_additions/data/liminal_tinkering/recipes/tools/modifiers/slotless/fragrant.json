@@ -1,0 +1,14 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "kubejs:truffle_oil_bottle"
+    }
+  ],
+  "level": 1,
+  "result": "liminal_tinkering:fragrant",
+  "tools": {
+    "tag": "tconstruct:modifiable/bonus_slots"
+  }
+}

@@ -1,0 +1,42 @@
+# Roadmap
+
+General:
+[x] Pretty Tooltips for added content
+
+Truffles:
+[x] Carpet Truffle
+[x] Bedazzled Truffle
+[ ] Annointed Royal Truffle
+[x] Truffle searching
+[x] JEI info on process searching
+[ ] Carpet sniffer using EntityJS
+
+Truffle Oil
+[x] Truffle Oil
+[x] Common Oil Recipe
+[x] Resin Oil Recipe
+[x] Potato Chips (simple and scented)
+[x] Truffle Oil Diasssembly Concept
+[x] Disassembly: Plated Furniture
+[x] Disassembly: Scrap Processing
+
+Scraps
+[x] Iron
+[x] Nickel
+[x] Tin
+[x] Aluminum
+[x] Gold
+[ ] Steel
+[ ] Tungsten
+[ ] Copper
+[x] Scrap Melting
+
+Plates
+[x] Light Plate
+[x] Dark Plate
+[x] Plate Processing
+
+Soul
+[x] Liminal Soul
+[x] Soul Entrapment (Block Transformation)
+[x] Soul Crystalisation 

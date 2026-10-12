@@ -1,0 +1,15 @@
+ItemEvents.crafted('kubejs:ceilling_lamp', e =>
+		let lamp = event.block
+		let level = lamp.getLevel()
+		let [pos_x,pos_y,pos_z] = [lamp.getX() + 0.5,lamp.getY(),lamp.getZ() + 0.5]
+		level.playSound(null,pos_x,pos_y,pos_z,"immersiveengineering:tesla","blocks",1,1.5)
+		let below = lamp.getDown()
+		while (pos_y > 0) {
+			if (below.getId() == "minecraft:air") {below.set("minecraft:light")}
+			pos_y--
+			below = below.getDown()
+			if (level.getBlock(pos_x,pos_y - 6,pos_z).getId() != "minecraft:air") {
+				break
+			}
+		}	
+})

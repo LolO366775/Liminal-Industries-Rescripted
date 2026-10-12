@@ -1,0 +1,20 @@
+{
+   "loader": "fusion:model",
+   "type": "connecting",
+   "connections": [
+      {
+        "type": "match_block",
+        "block": "kubejs:stripped_wallpaper7"
+      },
+      {
+        "type": "match_block",
+        "block": "kubejs:stripped_wallpaper7_perm"
+      }
+   ],
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "kubejs:block/carpet",
+    "bottom": "kubejs:block/ceilling",
+    "side": "kubejs:block/stripped_wallpaper/pink/bordered_top/growth_1"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "base": "cyansoup_ballpit_maze",
+  "variants": [
+	"cyansoup_ballpit_maze_altclear_nyx",
+        "cyansoup_ballpit_maze_altclear2_nyx"
+  ]
+}

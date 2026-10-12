@@ -1,0 +1,12 @@
+{
+	"rooms": [
+		"#sculk"
+	],
+	"step": "46.0",
+	"procedures": [
+		{
+			"type": "module",
+			"name": "replace_furniture_with_node"
+		}
+	]
+}

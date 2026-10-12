@@ -1,0 +1,126 @@
+{
+  "type": "minecraft:chests",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "entries": [
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/curry_fish",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/curry_carpet",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/curry_meat",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/curry_mushroom",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/curry_vegetable",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "kubejs:foods/berry_bowl",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:beef_stew",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:vegetable_soup",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:stuffed_pumpkin",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:pumpkin_soup",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:onion_soup",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:chicken_soup",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:fish_stew",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:bone_broth",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:mixed_salad",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:fruit_salad",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:noodle_soup",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:baked_cod_stew",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:fried_rice",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "actuallyadditions:water_bowl",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:gleaming_salad",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "farmersdelight:tomato_sauce",
+          "weight": 1
+	},
+	{
+          "type": "minecraft:item",
+          "name": "miners_delight:bowl_of_stuffed_squid",
+          "weight": 1
+	}
+      ],
+      "rolls": 1
+    }
+  ]
+}

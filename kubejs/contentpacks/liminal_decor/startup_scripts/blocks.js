@@ -1,0 +1,73 @@
+StartupEvents.registry('block', event => {
+
+	let unbreakable = (id,display_name) => {
+	event.create(id)
+		.fullBlock(true)
+		.material("stone")
+		.soundType("stone")
+		.unbreakable()
+		.tagBlock('wither_immune')
+		.displayName(display_name)
+	}
+	unbreakable("oak_flooring_block","Oak Flooring")
+	unbreakable("spruce_flooring_block","Spruce Flooring")
+	unbreakable("birch_flooring_block","Birch Flooring")
+	unbreakable("jungle_flooring_block","Jungle Flooring")
+	unbreakable("acacia_flooring_block","Acacia Flooring")
+	unbreakable("dark_oak_flooring_block","Dark Oak Flooring")
+	unbreakable("mangrove_flooring_block","Mangrove Flooring")
+	unbreakable("cherry_flooring_block","Cherry Flooring")
+	unbreakable("bamboo_flooring_block","Bamboo Flooring")
+	unbreakable("crimson_flooring_block","Crimson Flooring")
+	unbreakable("warped_flooring_block","Warped Flooring")
+	unbreakable("treated_wood_flooring_block","Treated Wood Flooring")
+	unbreakable("polished_wood_flooring_block","Polished Wood Flooring")
+	unbreakable("checker_flooring_block","Checker Flooring")
+	unbreakable("cardboard_flooring_block","Cardboard Flooring")
+})
+StartupEvents.registry('block', event => {
+	event.create('closet')
+	.displayName("Closet")
+	.soundType("cherry_wood")
+	.tagBlock('backrooms:wooden_furniture')
+	.tagBlock('minecraft:mineable/axe')
+	.hardness(2.5)
+	.property(BlockProperties.FACING)
+    .property(BlockProperties.HALF)
+    .placementState(state => {
+        state.set(BlockProperties.FACING, state.horizontalDirection.opposite)
+        state.set(BlockProperties.HALF, 'bottom')
+    })
+    .blockEntity(entityInfo => {})
+
+	event.create('loaded_closet')
+	.displayName("Closet")
+	.soundType("cherry_wood")
+	.unbreakable()
+	.property(BlockProperties.FACING)
+    .property(BlockProperties.HALF)
+    .placementState(state => {
+        state.set(BlockProperties.FACING, state.horizontalDirection.opposite)
+        state.set(BlockProperties.HALF, 'bottom')
+    })
+    .blockEntity(entityInfo => {})
+
+	event.create('closet_small')
+	.displayName("Small Closet")
+	.box(0, 2, 0, 16, 16, 16)
+	.box(0, 0, 0, 2, 2, 2)
+	.box(14, 0, 0, 16, 2, 2)
+	.box(0, 0, 14, 2, 2, 16)
+	.box(14, 0, 14, 16, 2, 16)
+	.soundType("cherry_wood")
+	.tagBlock('backrooms:wooden_furniture')
+	.tagBlock('minecraft:mineable/axe')
+	.hardness(2.5)
+	.property(BlockProperties.HORIZONTAL_FACING)
+	.placementState(event => {
+        event.set(
+            BlockProperties.HORIZONTAL_FACING,
+            event.player.horizontalFacing.opposite
+        )
+    })
+})

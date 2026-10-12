@@ -1,0 +1,15 @@
+{
+   "loader": "fusion:model",
+   "type": "connecting",
+   "connections": [
+      {
+        "type": "is_same_block"
+      }
+   ],
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "kubejs:block/pool_tiles",
+    "bottom": "kubejs:block/pool_tiles",
+    "side": "kubejs:block/tiles_blue_block"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "base": "cross_section",
+  "variants": [
+	"cross_section_alt_nyx"
+  ]
+}

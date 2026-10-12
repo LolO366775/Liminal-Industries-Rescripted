@@ -1,0 +1,137 @@
+{
+    "minecraft:overworld": {
+      "world_center": {
+        "x": -1000,
+        "z": -1000
+      },
+      "sectors": [
+	"fields",
+	"forest",
+	"ring_void",
+	"ring_outer",
+	"danger",
+	"safe"
+      ],
+      "key": {
+	"safe": {
+	  "code": 1,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 0,
+	      "max": 250
+	    }
+          ]
+	},
+	"danger": {
+	  "code": 2,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 251,
+	      "max": 550
+	    },
+	    {
+	      "type": "distance",
+	      "min": 701,
+	      "max": 1000
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1101,
+	      "max": 1300
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1451,
+	      "max": 1600
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1801
+	    }
+          ]
+	},
+	"ring_outer": {
+	  "code": 3,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 551,
+	      "max": 600
+	    },
+	    {
+	      "type": "distance",
+	      "min": 651,
+	      "max": 700
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1301,
+	      "max": 1350
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1401,
+	      "max": 1450
+	    }
+          ]
+	},
+	"ring_void": {
+	  "code": 6,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 601,
+	      "max": 650
+	    },
+	    {
+	      "type": "distance",
+	      "min": 1351,
+	      "max": 1400
+	    }
+          ]
+	},
+	"forest": {
+	  "code": 4,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 1001,
+	      "max": 1100
+	    }
+          ]
+	},
+	"fields": {
+	  "code": 5,
+	  "generation": [
+	    {
+	      "type": "distance",
+	      "min": 1601,
+	      "max": 1800
+	    }
+          ]
+	}
+      }
+    },
+    "backrooms:poolrooms": {
+      "world_center": {
+        "x": 0,
+        "z": 0
+      },
+      "sectors": [
+	"poolrooms"
+      ],
+      "key": {
+	"poolrooms": {
+	  "code": 0,
+	  "generation": [
+	    {
+	      "type": "distance",
+              "min": 0
+	    }
+          ]
+	}
+      }
+    }
+}

@@ -1,0 +1,14 @@
+{
+  "loader": "fusion:model",
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "kubejs:block/carpet",
+    "bottom": "kubejs:block/ceilling",
+    "side": "kubejs:block/wallpaper_lblue_block"
+  },
+  "fusion": {
+    "type": "random",
+    "rows": 2,
+    "columns": 3
+  }
+}

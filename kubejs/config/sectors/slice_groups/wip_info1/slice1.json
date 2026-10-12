@@ -1,0 +1,7 @@
+{
+  "base": "slice1",
+  "variants": [
+    "slice1_alt1",
+    "slice1_alt2"
+  ]
+}

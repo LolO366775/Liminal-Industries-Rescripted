@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "occupied=false": {
+      "model": "kubejs:block/ceilling_socket"
+    },
+    "occupied=true": {
+      "model": "kubejs:block/ceilling_socket_chain"
+    }
+  }
+}	

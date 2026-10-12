@@ -1,0 +1,7 @@
+{
+  "base": "creeper_room",
+  "variants": [
+	"creeper_room_alt1",
+	"creeper_room_alt2"
+  ]
+}

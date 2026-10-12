@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "kubejs:block/feature_node/feature_node_top",
+    "bottom": "kubejs:block/feature_node/feature_node_bottom",
+    "side": "kubejs:block/feature_node/feature_node_side"
+  }
+}

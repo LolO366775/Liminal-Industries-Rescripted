@@ -1,0 +1,10 @@
+{
+  "id": "terrific_truffles",
+  "name": "Terrific Truffles",
+  "display_name" : "Terrific Truffles",
+  "description": "An addon mod for Liminal Industries adding a new rare early game food item",
+  "version": "1",
+  "authors": [
+    "Archemagoi"
+  ]
+}

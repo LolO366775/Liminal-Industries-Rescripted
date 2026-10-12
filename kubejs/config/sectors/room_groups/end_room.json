@@ -1,0 +1,7 @@
+{
+  "base": "end_room",
+  "variants": [
+	"end_room_alt1",
+	"end_room_alt2"
+  ]
+}

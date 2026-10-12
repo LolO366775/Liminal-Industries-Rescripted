@@ -1,0 +1,6 @@
+{
+  "base": "empty_pool2",
+  "variants": [
+	"empty_pool3"
+  ]
+}

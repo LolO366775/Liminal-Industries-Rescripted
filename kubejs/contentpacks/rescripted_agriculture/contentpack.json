@@ -1,0 +1,11 @@
+{
+  "id": "rescripted_agriculture",
+  "name": "Liminal Industries: Agriculture",
+  "description": "An mod for Liminal Industries adding a mushroom growing system",
+  "version": "1.0.0",
+  "authors": [
+    "Dusklore",
+    "Appocryptha",
+	"KD"
+  ]
+}

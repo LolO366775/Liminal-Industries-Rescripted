@@ -1,0 +1,7 @@
+{
+  "base": "carpet_drop",
+  "variants": [
+	"carpet_drop_altdanger_nyx",
+        "carpet_drop_altsafe_nyx"
+  ]
+}

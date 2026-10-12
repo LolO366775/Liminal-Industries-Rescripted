@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/orientable_with_bottom",
+  "textures": {
+    "bottom": "kubejs:block/concrete_burner/bottom",
+    "front": "kubejs:block/concrete_burner/front",
+    "side": "kubejs:block/concrete_burner/side",
+    "top": "kubejs:block/concrete_burner/top"
+  }
+}

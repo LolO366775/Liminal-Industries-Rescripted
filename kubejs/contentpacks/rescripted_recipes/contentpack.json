@@ -1,0 +1,9 @@
+{
+  "id": "rescripted_recipes",
+  "name": "Liminal Industries - Rescripted: Recipes",
+  "description": "An addon mod for Liminal Industries adding a bunch of recipes",
+  "version": "1.0.0",
+  "authors": [
+    "Dusklore"
+  ]
+}

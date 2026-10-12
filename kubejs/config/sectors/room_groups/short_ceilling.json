@@ -1,0 +1,28 @@
+{
+  "base": "zero1",
+  "variants": [
+    "3_way",
+    "bamboo_room",
+    "bedrock1",
+    "blue_cube",
+    "chair_pillars",
+    "connected_cross",
+    "corridor",
+    "dance_music",
+    "grass_table",
+    "large_cross",
+    "mail_room",
+    "main_cross_1",
+    "main_cross_2",
+    "main_cross_3",
+    "main_cross_4",
+    "main_cross_5",
+    "main_cross_6",
+    "moist",
+    "moyai",
+    "origin",
+    "padded_bird",
+    "reception2",
+    "red_carpet"
+  ]
+}

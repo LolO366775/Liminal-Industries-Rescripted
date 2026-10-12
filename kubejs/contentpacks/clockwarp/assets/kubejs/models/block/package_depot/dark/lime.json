@@ -1,0 +1,9 @@
+{
+  "parent": "kubejs:block/package_depot/parent",
+  "textures": {
+    "0": "kubejs:block/package_depot/dark/side",
+    "1": "kubejs:block/dark_casing",
+    "2": "kubejs:block/package_depot/dark/top_default/lime",
+    "particle": "kubejs:block/dark_casing"
+  }
+}

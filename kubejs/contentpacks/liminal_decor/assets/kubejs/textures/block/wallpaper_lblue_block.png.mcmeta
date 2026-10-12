@@ -1,0 +1,9 @@
+{
+  "fusion": {
+    "type": "random",
+    "rows": 2,
+    "columns": 3,
+    "random_source": "position",
+    "seed": 5627
+  }
+}

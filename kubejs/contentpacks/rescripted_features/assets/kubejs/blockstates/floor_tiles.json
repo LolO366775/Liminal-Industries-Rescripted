@@ -1,0 +1,36 @@
+{
+  "variants": {
+    "age=0": [
+      {
+        "model": "kubejs:block/floor_tiles/type1", "weight": 100
+      },
+      {
+        "model": "kubejs:block/floor_tiles/type2", "weight": 10
+      },
+      {
+        "model": "kubejs:block/floor_tiles/type3", "weight": 5
+      },
+      {
+        "model": "kubejs:block/floor_tiles/type4", "weight": 10
+      },
+      {
+        "model": "kubejs:block/floor_tiles/type5", "weight": 100
+      },
+      {
+        "model": "kubejs:block/floor_tiles/type6", "weight": 100
+      },
+      {
+        "model": "kubejs:block/floor_tiles/type7", "weight": 10
+      }
+    ],
+    "age=1": {
+      "model": "kubejs:block/regrowing_carpet/age_1"
+    },
+    "age=2": {
+      "model": "kubejs:block/regrowing_carpet/age_2"
+    },
+    "age=3": {
+      "model": "kubejs:block/regrowing_carpet/age_3"
+    }
+  }
+}

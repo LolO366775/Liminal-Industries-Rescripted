@@ -1,0 +1,14 @@
+{
+  "base": "large_cross",
+  "variants": [
+    "large_cross",
+    "large_cross",
+    "large_cross",
+    "main_cross_1",
+    "main_cross_2",
+    "main_cross_3",
+    "main_cross_4",
+    "main_cross_5",
+    "main_cross_6"
+  ]
+}

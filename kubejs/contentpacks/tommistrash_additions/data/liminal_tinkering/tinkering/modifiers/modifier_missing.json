@@ -1,0 +1,26 @@
+{
+  "level_display": "tconstruct:no_levels",
+  "modules": [
+    {
+      "type": "tconstruct:rarity",
+      "rarity": "uncommon"
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": -0.20,
+      "operation": "multiply_base",
+      "stat": "tconstruct:durability"
+    },
+    {
+      "type": "tconstruct:repair",
+      "flat": 0.5
+    },
+    {
+      "type": "tconstruct:stat_boost",
+      "flat": 0.65,
+      "operation": "multiply_base",
+      "stat": "tconstruct:mining_speed"
+    }
+  ],
+  "tooltip_display": "always"
+}

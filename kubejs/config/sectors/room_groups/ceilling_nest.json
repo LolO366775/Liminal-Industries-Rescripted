@@ -1,0 +1,7 @@
+{
+  "base": "ceilling_nest",
+  "variants": [
+	"ceilling_nest_alt1",
+	"ceilling_nest_alt2"
+  ]
+}

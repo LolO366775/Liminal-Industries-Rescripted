@@ -1,0 +1,17 @@
+{
+  "original": {
+    "name": "original_room_name",
+    "builders": ["name1","name2"]
+  },
+  "modified": {
+    "name": "modified_room_name",
+    "builders": ["name3"],
+    "slices": [
+      "slice1_empty",
+      "slice2",
+      "##slice3",
+      "slice4",
+      "##slice5"
+    [
+  }
+}

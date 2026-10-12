@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "kubejs:block/red_carpet",
+    "bottom": "kubejs:block/ceilling2",
+    "side": "kubejs:block/wallpapers/hotel/default"
+  }
+}

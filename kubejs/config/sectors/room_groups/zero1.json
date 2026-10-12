@@ -1,0 +1,9 @@
+{
+  "base": "zero1",
+  "variants": [
+	"zero1_alt1",
+	"zero1_alt2",
+	"zero1_alt3",
+	"zero1_alt4"
+  ]
+}

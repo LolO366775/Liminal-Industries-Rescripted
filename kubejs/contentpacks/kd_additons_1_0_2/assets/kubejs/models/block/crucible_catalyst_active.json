@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "kubejs:block/crucatalyst_top",
+    "bottom": "kubejs:block/crucatalyst_bottom",
+    "side": "kubejs:block/crucatalyst_side_active"
+  }
+}

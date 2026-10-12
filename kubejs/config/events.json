@@ -1,0 +1,13 @@
+{
+//Events are currently a work in progress, and should only be enabled for testing!
+	"lights_out": {
+		"enabled": "false",
+		"sectors": {
+			"blacklist": [
+				0.0,
+				1.0
+			],
+			"whitelist": []
+		}
+	}
+}

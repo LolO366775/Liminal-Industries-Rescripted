@@ -1,0 +1,9 @@
+{
+  "base": "moist",
+  "variants": [
+    "moist",
+    "zero_dripping1",
+    "zero_dripping1",
+    "zero_dripping2"
+  ]
+}

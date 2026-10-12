@@ -1,0 +1,19 @@
+//
+//Note: All changes to this file require a server reload
+//
+{
+  "dark_additions": "true",
+  "slime_seeds": "true",
+  "budding_crystals": "true",
+  "budding_crystal_transmutation": "true",
+  "waystones": "true",
+  "craftable_waystones": "false", //if enabled, you will also have to edit the waystones config to make them placeable
+  "copycat_alloy": "true",
+  "fake_blocks": "true",
+  "fake_sculk": "true",
+  "location_cards": "true",
+  "plywood": "true",
+  "create_connected": "true",
+  "rescripted_oil_processing": "true",
+  "superheating_changes": "true"
+}

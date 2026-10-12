@@ -1,0 +1,6 @@
+{
+  "parent": "kubejs:block/cross",
+  "textures": {
+    "cross": "kubejs:block/wire_vines0"
+  }
+}

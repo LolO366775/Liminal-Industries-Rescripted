@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "top": "kubejs:block/sculk_spawner/top_inactive",
+    "bottom": "kubejs:block/sculk_spawner/bottom",
+    "side": "kubejs:block/sculk_spawner/side_inactive"
+  }
+}

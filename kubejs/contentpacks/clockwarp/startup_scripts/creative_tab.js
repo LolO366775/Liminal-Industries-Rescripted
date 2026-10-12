@@ -1,0 +1,59 @@
+StartupEvents.registry('creative_mode_tab', event => {
+	event.create('clockwarp').icon(() => 'supplementaries:clock_block').content(() => [
+		'kubejs:dark_casing',
+		'kubejs:dimensional_package_depot',
+		'kubejs:location_terminal',
+		'kubejs:compound_sponge',
+		'kubejs:compound_charge',
+		'kubejs:empty_compound_charge',
+		'kubejs:carpet_fluid',
+		'kubejs:unstable_compound',
+		'kubejs:perfectly_stablised_compound',
+		'kubejs:brown_location_card',
+		'kubejs:red_location_card',
+		'kubejs:orange_location_card',
+		'kubejs:yellow_location_card',
+		'kubejs:lime_location_card',
+		'kubejs:green_location_card',
+		'kubejs:cyan_location_card',
+		'kubejs:light_blue_location_card',
+		'kubejs:blue_location_card',
+		'kubejs:purple_location_card',
+		'kubejs:magenta_location_card',
+		'kubejs:pink_location_card',
+		'kubejs:white_location_card',
+		'kubejs:light_gray_location_card',
+		'kubejs:gray_location_card',
+		'kubejs:black_location_card'
+	])
+})
+StartupEvents.modifyCreativeTab('kubejs:clockwarp', event => {
+	event.displayName = 'Dimensional Transportation'
+})
+StartupEvents.modifyCreativeTab('kubejs:tab', event => {
+	event.remove('kubejs:dark_casing')
+	event.remove('kubejs:dimensional_package_depot')
+	event.remove('kubejs:location_terminal')
+	event.remove('kubejs:compound_sponge')
+	event.remove('kubejs:compound_charge')
+	event.remove('kubejs:empty_compound_charge')
+	event.remove('kubejs:carpet_fluid')
+	event.remove('kubejs:unstable_compound')
+	event.remove('kubejs:perfectly_stablised_compound')
+	event.remove('kubejs:brown_location_card')
+	event.remove('kubejs:red_location_card')
+	event.remove('kubejs:orange_location_card')
+	event.remove('kubejs:yellow_location_card')
+	event.remove('kubejs:lime_location_card')
+	event.remove('kubejs:green_location_card')
+	event.remove('kubejs:cyan_location_card')
+	event.remove('kubejs:light_blue_location_card')
+	event.remove('kubejs:blue_location_card')
+	event.remove('kubejs:purple_location_card')
+	event.remove('kubejs:magenta_location_card')
+	event.remove('kubejs:pink_location_card')
+	event.remove('kubejs:white_location_card')
+	event.remove('kubejs:light_gray_location_card')
+	event.remove('kubejs:gray_location_card')
+	event.remove('kubejs:black_location_card')
+})

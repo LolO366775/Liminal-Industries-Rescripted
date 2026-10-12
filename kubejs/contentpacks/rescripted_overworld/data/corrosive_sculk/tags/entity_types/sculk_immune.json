@@ -1,0 +1,14 @@
+{
+  "comment": "Sculk Hands anyone?",
+  "values": [
+    "minecraft:warden",
+    "minecraft:ravager",
+    "minecraft:creeper",
+    "minecraft:husk",
+    "minecraft:spider",
+    "minecraft:cave_spider",
+    "minecraft:drowned",
+    "minecraft:guardian",
+    "minecraft:slime"
+  ]
+}

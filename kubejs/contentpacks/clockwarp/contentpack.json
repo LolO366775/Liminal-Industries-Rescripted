@@ -1,0 +1,9 @@
+{
+  "id": "clockwarp",
+  "name": "Liminal Industries: Clockwarp",
+  "description": "An addon mod for Liminal Industries adding dimensional transportation methods",
+  "version": "1.0.0",
+  "authors": [
+    "Dusklore"
+  ]
+}

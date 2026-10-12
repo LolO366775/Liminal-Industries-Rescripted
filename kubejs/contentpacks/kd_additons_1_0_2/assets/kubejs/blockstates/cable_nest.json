@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "kubejs:block/wire_nest0"
+    },
+    "age=1": {
+      "model": "kubejs:block/wire_nest1"
+    }
+  }
+}	

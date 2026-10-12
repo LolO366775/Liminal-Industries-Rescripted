@@ -1,0 +1,9 @@
+{
+  "parent": "kubejs:block/package_depot/parent",
+  "textures": {
+    "0": "kubejs:block/package_depot/rich/side",
+    "1": "kubejs:block/rich_casing",
+    "2": "kubejs:block/package_depot/rich/top_default/red",
+    "particle": "kubejs:block/rich_casing"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "kd_additions",
+  "name": "Liminal Industries: KD's additions",
+  "description": "Some features made by me, as well as Archemagoi adding some crucible catalyst dust logic.",
+  "version": "1.0.2",
+  "authors": [
+	"KD",
+  "Archemagoi"
+  ]
+}
