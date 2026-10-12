@@ -105,9 +105,7 @@ function collect_locker_loot(event){
 	}
 	return 1
 }
-
 //Functions
-
 function get_towel_colour(){
 	let colour = Math.round((Math.random() * (25 - 0.001))-0.5)
     return colour
@@ -174,19 +172,15 @@ function open_locker(locker,from_sculker){
 * @param {Number} luck
 * @param {Boolean} from_sculker
 */
-function get_random_loot_item(luck,from_sculker){
-	if (from_sculker) {
-		if (coin_flip(0.5)) {return "minecraft:shulker_shell"}
-	}
-	let common_categories = [loot_pool_floaties(),loot_pool_floaties(),loot_pool_floaties(),loot_clothing(),loot_clothing(),loot_picnic(),loot_games()]
-	let rare_categories = [loot_armour_trims(),loot_beach_discs()]
-	let loot_pool = rare_categories.concat(common_categories,common_categories,common_categories)
+function get_random_loot_item(luck){
 	let template_chance = 0.01 * (luck * 2)
-	let chosen_loot = loot_pool[Math.round((Math.random() * (loot_pool.length -0.001))-0.5)]
-	if (coin_flip(template_chance)) {
-		chosen_loot = "minecraft:netherite_upgrade_smithing_template"
+	let item_id = "minecraft:netherite_upgrade_smithing_template"
+	if (!coin_flip(template_chance)) {
+		Utils.rollChestLoot('backrooms:poolrooms/locker_loot').forEach(item => {
+			item_id = item.getId()
+		})
 	}
-	return chosen_loot
+	return item_id
 }
 function get_random_cardboard_box(){
 	if (coin_flip(0.5)) {return "create:cardboard_package_10x8"}
@@ -205,11 +199,24 @@ function get_random_cardboard_box(){
 function steal_locker_cardboard_box(player,locker,slot_0,slot_1,slot_2,slot_3,towel_colour){
 	let luck = locker.getEntityData().getCompound("data").getInt("luck")
 	let from_sculker = locker.getEntityData().getCompound("data").getBoolean("from_sculker")
-	let cardboard_box = Item.of(get_random_cardboard_box(),1,{"Items":{"Items":[{"Slot":0,"id":get_random_loot_item(luck,from_sculker),"Count":1}]}})
-	player.addItem(cardboard_box)
-	let [pos_x,pos_y,pos_z] = [locker.getX() + 0.5,locker.getY(),locker.getZ() + 0.5]
+	let cardboard_box = Item.of("minecraft:shulker_shell")
+	let [pos_x,pos_y,pos_z] = [locker.getX() + 0.5,locker.getY() + 0.5,locker.getZ() + 0.5]
+	if (!from_sculker) {
+		let loot_item = get_random_loot_item(luck,from_sculker)
+		if (player.isCrouching()) {
+			cardboard_box = loot_item
+			try {
+				locker.level.playSound(null,pos_x,pos_y,pos_z,"create:package_pop_compounded_1","blocks",1,0)
+				locker.level.playSound(null,pos_x,pos_y,pos_z,"create:package_pop","blocks",1,0)
+				locker.level.spawnParticles("minecraft:block create:cardboard_block",false,pos_x,pos_y,pos_z,0.1,0.1,0.1,10,0)
+			} catch (error) {}
+		} else {
+			cardboard_box = Item.of(get_random_cardboard_box(),1,{"Items":{"Items":[{"Slot":0,"id":loot_item,"Count":1}]}})
+		}
+	}
 	let half = locker.properties.get("half")
 	let facing = locker.properties.get("facing")
+	locker.popItemFromFace(cardboard_box,facing)
 	locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:item.bundle.remove_one","blocks",1,1)
 	if (locker.getId() == "kubejs:open_pool_locker_double") {
 		locker.set("kubejs:open_pool_locker_double",{"half":half,"facing":facing,"slot_0_occupied":slot_0,"slot_1_occupied":slot_1,"slot_2_occupied":slot_2,"slot_3_occupied":slot_3,"age":towel_colour})
@@ -236,14 +243,14 @@ function is_towel_colour(towel_colour){
 */
 function steal_locker_towel(player,locker,luck){
 	let template_chance = 0.01 * (luck * 2)
-	if (coin_flip(template_chance)) {
-		player.addItem(Item.of("minecraft:elytra",1))
-	} else {
-		player.addItem(Item.of("beachparty:beach_towel",1))
-	}
 	let [pos_x,pos_y,pos_z] = [locker.getX() + 0.5,locker.getY(),locker.getZ() + 0.5]
 	let half = locker.properties.get("half")
 	let facing = locker.properties.get("facing")
+	if (coin_flip(template_chance)) {
+		locker.popItemFromFace(Item.of("minecraft:elytra",1),facing)
+	} else {
+		locker.popItemFromFace(Item.of("beachparty:beach_towel",1),facing)
+	}
 	locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:item.bundle.remove_one","blocks",1,1)
 	locker.set("kubejs:open_pool_locker_double",{"half":half,"facing":facing,"slot_0_occupied":false,"slot_1_occupied":false,"slot_2_occupied":false,"slot_3_occupied":false,"age":"25"})
     return 1

@@ -2,19 +2,22 @@
 * @param {Internal.BlockContainerJS} carpet
 * @param {Internal.ItemStack} item
 * @param {Internal.Player} player
+* @param {Boolean} drop_item
 */
-function cut_carpet(carpet,item,player){
+function cut_carpet(carpet,item,player,drop_item){
 	let position = carpet.getPos()
 	if (item.hasTag("forge:tools/knives")) {
-		if (carpet.getUp().id == "minecraft:air" || carpet.getUp().id == "torchmaster:invisible_light") {
+		if (carpet.getUp().blockState.canBeReplaced()) {
 			if (item.nbt && item.nbt.getBoolean("tic_broken")) {
 				return 0
 			}
-			if (player.isFake()) {
-        		player.give("kubejs:cut_carpet")
-    		} else {
-        		carpet.offset(0,1,0).popItemFromFace("kubejs:cut_carpet","up")
-    		}
+			if (drop_item) {
+				if (player.isFake()) {
+        			player.give("kubejs:cut_carpet")
+    			} else {
+        			carpet.offset(0,1,0).popItemFromFace("kubejs:cut_carpet","up")
+    			}
+			}
 			if (0.05 > Math.random()) {
 				carpet.set("kubejs:drain_breakable")
 				carpet.level.playSound(null,position.x,position.y,position.z,"minecraft:block.lantern.hit","blocks",1,0)
@@ -32,18 +35,34 @@ function cut_carpet(carpet,item,player){
     return 1
 }
 BlockEvents.leftClicked("kubejs:carpet", event  => {
-	cut_carpet(event.block,event.item,event.player)
+	cut_carpet(event.block,event.item,event.player,true)
+})
+BlockEvents.leftClicked("kubejs:red_carpet", event  => {
+	cut_carpet(event.block,event.item,event.player,true)
+})
+
+BlockEvents.leftClicked("kubejs:floor_tiles", event  => {
+	let age = event.getBlock().properties.get("age")
+	if (age != "0") {
+		cut_carpet(event.block,event.item,event.player,false)
+	}
 })
 
 BlockEvents.leftClicked("kubejs:soul_carpet", event  => {
-	cut_carpet(event.block,event.item,event.player)
+	cut_carpet(event.block,event.item,event.player,true)
+})
+BlockEvents.leftClicked("kubejs:red_soul_carpet", event  => {
+	cut_carpet(event.block,event.item,event.player,true)
 })
 
 BlockEvents.leftClicked("kubejs:soggy_carpet", event  => {
-	cut_carpet(event.block,event.item,event.player)
+	cut_carpet(event.block,event.item,event.player,true)
+})
+BlockEvents.leftClicked("kubejs:red_soggy_carpet", event  => {
+	cut_carpet(event.block,event.item,event.player,true)
 })
 
-ServerEvents.recipes(event => {
+/*ServerEvents.recipes(event => {
 	event.custom({
 		"type": "lychee:block_interacting",
 		"item_in": {
@@ -67,4 +86,4 @@ ServerEvents.recipes(event => {
 			}
 		]
 	})
-})
+})*/

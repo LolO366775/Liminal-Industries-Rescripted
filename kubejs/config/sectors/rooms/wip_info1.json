@@ -7,7 +7,7 @@
     "name": "modified_room_name",
     "builders": ["name3"],
     "slices": [
-      "slice1_empty",
+      "empty/slice1",
       "slice2",
       "##slice3",
       "slice4",

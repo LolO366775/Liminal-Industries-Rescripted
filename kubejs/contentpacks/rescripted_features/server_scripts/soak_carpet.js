@@ -146,7 +146,7 @@ BlockEvents.rightClicked("kubejs:red_oil_carpet", event => {
 */
 function erupt_oil(carpet,with_sponge,item){
 	let above = carpet.getUp()
-	if (above.getId() == "minecraft:air" || above.getId() == "minecraft:light") {
+	if (above.blockState.canBeReplaced()) {
 		let [pos_x,pos_y,pos_z] = [carpet.getX(),carpet.getY(),carpet.getZ()]
 		let level = above.getLevel()
 		level.playSound(null,pos_x,pos_y + 1,pos_z,"minecraft:block.lava.ambient","blocks",1,2)
@@ -157,7 +157,7 @@ function erupt_oil(carpet,with_sponge,item){
 			item.shrink(1)
 		} else {
 			above.set("thermal:crude_oil_fluid")
-			if (above.getUp().getId() == "minecraft:air" || above.getUp().getId() == "minecraft:light") {
+			if (above.getUp().blockState.canBeReplaced()) {
 				above.getUp().set("thermal:crude_oil_fluid")
 			}
 		}

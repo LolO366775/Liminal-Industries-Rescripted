@@ -1,8 +1,15 @@
 ServerEvents.recipes(event => {
 	event.shapeless("kubejs:scrap", ["kubejs:drain_item"])
-
-	event.remove({ output: 'thermal:diving_fabric' })
 	event.remove({ output: 'beachparty:beach_towel' })
+	event.shapeless("minecraft:string", ["beachparty:beach_towel"])
+	event.recipes.farmersdelight.cutting(
+        'beachparty:beach_towel',
+        "#forge:tools/knives", // tool
+        [ // results
+            Item.of("minecraft:string"),
+			Item.of("minecraft:string").withChance(0.5)
+        ]
+	)
 	event.shapeless("thermal:cured_rubber", ["beachparty:pool_noodle"])
 	event.recipes.create.crushing([
 		Item.of('thermal:cured_rubber'),
@@ -59,23 +66,24 @@ ServerEvents.recipes(event => {
 	],
 		'beachparty:beach_hat'
 	)
-	event.shapeless("thermal:diving_fabric", ["beachparty:trunks"])
+	let clothes_main_scrap = "kubejs:clothing_pile"
+	event.shapeless(clothes_main_scrap, ["beachparty:trunks"])
 	event.recipes.create.crushing([
-		Item.of('thermal:diving_fabric'),
+		Item.of(clothes_main_scrap),
 		Item.of('minecraft:string').withChance(0.5)
 	],
 		'beachparty:trunks'
 	)
-	event.shapeless("thermal:diving_fabric", ["beachparty:bikini"])
+	event.shapeless(clothes_main_scrap, ["beachparty:bikini"])
 	event.recipes.create.crushing([
-		Item.of('thermal:diving_fabric'),
+		Item.of(clothes_main_scrap),
 		Item.of('minecraft:string').withChance(0.5)
 	],
 		'beachparty:bikini'
 	)
-	event.shapeless("thermal:diving_fabric", ["beachparty:swim_wings"])
+	event.shapeless(clothes_main_scrap, ["beachparty:swim_wings"])
 	event.recipes.create.crushing([
-		Item.of('thermal:diving_fabric'),
+		Item.of(clothes_main_scrap),
 		Item.of('minecraft:phantom_membrane').withChance(0.5)
 	],
 		'beachparty:swim_wings'

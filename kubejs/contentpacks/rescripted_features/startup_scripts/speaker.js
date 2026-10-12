@@ -101,7 +101,7 @@ function speaker_static_tick(speaker) {
 	if (!is_quiet) {
 		let level = speaker.getLevel()
 		let [pos_x,pos_y,pos_z] = [speaker.getX() + 0.5,speaker.getY(),speaker.getZ() + 0.5]
-		level.playSound(null,pos_x,pos_y,pos_z,"kubejs:radio_static_tick","blocks",1,1)
+		level.playSound(null,pos_x,pos_y,pos_z,"kubejs:radio_static_tick","ambient",1,1)
 	}
 }
 /**
@@ -113,7 +113,7 @@ function speaker_radio_close(speaker) {
 	if (!is_quiet) {
 		let level = speaker.getLevel()
 		let [pos_x,pos_y,pos_z] = [speaker.getX() + 0.5,speaker.getY(),speaker.getZ() + 0.5]
-		level.playSound(null,pos_x,pos_y,pos_z,"kubejs:radio_close","blocks",1,1)
+		level.playSound(null,pos_x,pos_y,pos_z,"kubejs:radio_close","ambient",1,1)
 	}
 }
 /**
@@ -125,8 +125,8 @@ function speaker_radio_open(speaker) {
 	if (!is_quiet) {
 		let level = speaker.getLevel()
 		let [pos_x,pos_y,pos_z] = [speaker.getX() + 0.5,speaker.getY(),speaker.getZ() + 0.5]
-		level.playSound(null,pos_x,pos_y,pos_z,"kubejs:radio_open","blocks",1,1)
-		level.playSound(null,pos_x,pos_y,pos_z,"kubejs:radio_static_tick","blocks",1,1)
+		level.playSound(null,pos_x,pos_y,pos_z,"kubejs:radio_open","ambient",1,1)
+		level.playSound(null,pos_x,pos_y,pos_z,"kubejs:radio_static_tick","ambient",1,1)
 	}
 }
 /**
@@ -173,7 +173,7 @@ function speaker_play_sound(speaker,sound,duration) {
 	let level = speaker.getLevel()
 	let [pos_x,pos_y,pos_z] = [speaker.getX() + 0.5,speaker.getY(),speaker.getZ() + 0.5]
 	let sound_id = "kubejs:radio_" + sound
-	level.playSound(null,pos_x,pos_y,pos_z,sound_id,"blocks",5,1)
+	level.playSound(null,pos_x,pos_y,pos_z,sound_id,"ambient",5,1)
 }
 /**
 * @param {Internal.BlockContainerJS} speaker
@@ -203,11 +203,22 @@ function speaker_get_random_sound_data() {
 	let dweller2 = {"name":"dweller2","duration":4,"quiet":false,"distance":5}
 	let dweller3 = {"name":"dweller3","duration":4,"quiet":false,"distance":5}
 	let dweller4 = {"name":"dweller4","duration":6,"quiet":false,"distance":5}
+	//let on_hold = {"name":"on_hold","duration":15,"quiet":false,"distance":5}
+	//let space_jazz = {"name":"space_jazz","duration":25,"quiet":false,"distance":5}
+	//let vibing = {"name":"vibing","duration":13,"quiet":false,"distance":5}
 	let random_group1 = [beep1,cave16,clanging_chimes,coin_grinding,drop_echo,even_larger_drain,fan,forgor] //8
 	let random_group2 = [gem_pling,greg,infuser,jingle,large_metal_door_open,large_scream,radio,render,talking] //9
+	//let random_group3 = [on_hold,space_jazz,vibing] //3
 	let dweller_group = [dweller1,dweller2,dweller3,dweller4] //4
 	let sound_list = random_group1.concat(random_group2,dweller_group)
 	let random_num = Math.round((Math.random() * (sound_list.length -0.001)) -0.5)
 	let chosen_sound = sound_list[random_num]
 	return chosen_sound
 }
+//sculk sounds for dark
+//playsound minecraft:entity.warden.agitated block @s -1113 25 -1060 5 1
+//playsound minecraft:entity.warden.sniff block @s -1113 25 -1060 5 1
+//playsound minecraft:entity.warden.listening_angry block @s -1113 25 -1060 5 1
+//playsound minecraft:entity.warden.nearby_closer block @s -1113 25 -1060 5 1
+//playsound minecraft:entity.warden.tendril_clicks block @s -1113 25 -1060 5 0
+//playsound minecraft:entity.warden.roar block @s -1113 25 -1060 5 1

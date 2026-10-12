@@ -32,15 +32,14 @@ global.tick_sculk_spawner = (entity) => {
 */
 function can_sculk_spawner_spawn(spawner){
 	let level = spawner.getLevel()
-	let [pos_x,pos_y,pos_z] = [spawner.getX() + 0.5,spawner.getY(),spawner.getZ() + 0.5]
 	let difficulty = level.server.getWorldData().getDifficulty()
 	if (is_above_sculk_spawner_valid_spawn(spawner)) {
 		if (difficulty != "PEACEFUL") {
-			if (level.getNearestPlayer(pos_x,pos_y,pos_z,10,true) != null) {
+			if (is_player_nearby_spawner(spawner)) {
 				if (sculk_spawner_nearby_mob_count(spawner)) {
 					let spawner_data = spawner.getEntityData().getCompound("data")
 					let souls = spawner_data.getInt("souls")
-					if (souls != 0) {
+					if (souls > 0) {
 						return true
 					}
 				}			
@@ -48,6 +47,45 @@ function can_sculk_spawner_spawn(spawner){
 		}
 	}
 	return false
+}
+/**
+* @param {Internal.BlockContainerJS} spawner
+*/
+function is_player_nearby_spawner(spawner){
+	try {
+		let level = spawner.getLevel()
+		let [pos_x,pos_y,pos_z] = [spawner.getX() + 0.5,spawner.getY() + 0.5,spawner.getZ() + 0.5]
+		let distance = 5
+		let nearby_entities = level.getEntitiesWithin(AABB.of(pos_x - distance, pos_y - distance, pos_z - distance, pos_x + distance, pos_y + distance, pos_z + distance))
+		let pass = false
+  		nearby_entities.forEach(element => {
+    		if (element.isPlayer()) {
+				pass = can_player_be_seen_by_spawner(element)
+      		}
+			if (element.getType() == "minecraft:armor_stand") {
+				pass = true
+      		}
+    	})
+		return pass
+	} catch (error) {
+		return false
+	}
+}
+/**
+* @param {Internal.ServerPlayer} player
+*/
+function can_player_be_seen_by_spawner(player){
+	try {
+		if (player.gameMode.isCreative()) {
+			return false
+		}
+		if (player.isSpectator()) {
+			return false
+		}
+	return true
+	} catch (error) {
+		return true
+	}
 }
 /**
 * @param {Internal.BlockContainerJS} spawner
@@ -92,11 +130,21 @@ function deactivate_sculk_spawner(spawner){
 * @param {Internal.BlockContainerJS} spawner
 */
 function charge_sculk_spawner(spawner){
-	let spawner_data = spawner.getEntityData().getCompound("data")
-	let [pos_x,pos_y,pos_z] = [spawner.getX() + 0.5,spawner.getY(),spawner.getZ() + 0.5]
-	spawner_data.putInt("souls",15)
-	spawner.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.sculk.charge","blocks",1,0)
-	spawner.level.spawnParticles("minecraft:sculk_charge_pop",false,pos_x,pos_y,pos_z,0.5,0.5,0.5,50,0)
+	let level = spawner.getLevel()
+	let difficulty = level.server.getWorldData().getDifficulty()
+	if (difficulty != "PEACEFUL") {
+		let spawner_data = spawner.getEntityData().getCompound("data")
+		let [pos_x,pos_y,pos_z] = [spawner.getX() + 0.5,spawner.getY(),spawner.getZ() + 0.5]
+		if (difficulty == "EASY") {
+			spawner_data.putInt("souls",5)
+		} else if (difficulty == "HARD") {
+			spawner_data.putInt("souls",15)
+		} else {
+			spawner_data.putInt("souls",10)
+		}
+		spawner.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.sculk.charge","blocks",1,0)
+		spawner.level.spawnParticles("minecraft:sculk_charge_pop",false,pos_x,pos_y,pos_z,0.5,0.5,0.5,50,0)
+	}
 }
 /**
 * @param {Internal.BlockContainerJS} spawner

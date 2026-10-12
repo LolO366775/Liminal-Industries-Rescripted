@@ -11,4 +11,8 @@ BlockEvents.broken('mekanism:radioactive_waste_barrel', event => {
     event.level.spawnParticles("minecraft:dust_color_transition 0 1 0 5 0 1 1",false,pos_x,pos_y,pos_z,5,5,5,100,0.1)
     event.level.spawnParticles("minecraft:dust_color_transition 0 1 0 5 0 1 1",false,pos_x,pos_y,pos_z,5,5,5,100,0.1)
     server.runCommandSilent(`execute in ${dimension} run summon area_effect_cloud ${pos_x} ${pos_y} ${pos_z} {Particle:"dust_color_transition 0 1 0 1 0 1 1",Radius:1f,RadiusPerTick:0.05f,Duration:150,Effects:[{Id:20,Amplifier:5b,Duration:60,ShowParticles:0b}]}`)
+    //let mob = level.createEntity(mob_id)
+    //mob.setPos(pos_x,pos_y + 1,pos_z)
+	//mob.mergeNbt(entity_data)
+	//mob.spawn()
 })

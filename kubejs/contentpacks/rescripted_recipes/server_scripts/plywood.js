@@ -64,4 +64,14 @@ function recipes_plywood(event){
 			C: 'storage_shelves:cardboard'
 		}
 	)
+	event.shapeless('storage_shelves:cardboard', "kubejs:plywood_block")
+	event.shaped('kubejs:carpet_dust_block', [
+		'CCC',
+		'CCC',
+		'CCC'
+		],{
+			C: 'kubejs:carpet_dust'
+		}
+	)
+	event.shapeless('kubejs:carpet_dust', "kubejs:carpet_dust_block")
 }

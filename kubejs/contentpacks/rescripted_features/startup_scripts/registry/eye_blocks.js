@@ -104,7 +104,7 @@ let exotic_eye_model_elements = () => {
 	register_generic_eye("evil_eye","Evil Eye")
 	register_generic_eye("guardian_eye","Guardian Eye")
 	register_generic_eye("magical_eye","Magical Eye")
-	register_generic_eye("nether_eye","Nether Eye")
+	register_generic_eye("nether_eye","Forged Eye")
 	register_generic_eye("old_eye","Old Eye")
 	register_generic_eye("rogue_eye","Rogue Eye")
 	register_generic_eye("undead_eye","Undead Eye")

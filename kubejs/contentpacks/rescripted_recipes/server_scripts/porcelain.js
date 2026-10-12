@@ -43,7 +43,7 @@ ServerEvents.recipes(event => {
   		},
   		"result": "kubejs:porcelain_shard"
 	})
-	event.recipes.create.crushing([
+	event.recipes.create.milling([
 		Item.of('kubejs:porcelain_shard', 3),
 		Item.of('kubejs:porcelain_shard').withChance(0.5)
 	],

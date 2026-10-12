@@ -7,7 +7,7 @@ function batteries_placement_event(event,batteries_id) {
 	if (item.getCount() >= 3) {
 		if (event.facing == "up") {
 			let above = event.block.getUp()
-			if (above == "minecraft:air" || above.getUp() == "minecraft:light") {
+			if (above.blockState.canBeReplaced()) {
 				above.set(batteries_id)
 				event.item.shrink(3)
 				let [pos_x,pos_y,pos_z] = [above.getX(),above.getY(),above.getZ()]

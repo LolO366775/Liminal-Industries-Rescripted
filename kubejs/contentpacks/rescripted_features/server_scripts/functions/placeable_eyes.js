@@ -3,7 +3,7 @@
 */
 function place_eye_event_common(event,result_id) {
 	let above = event.block.getUp()
-	if (above == "minecraft:air" || above.getUp() == "minecraft:light") {
+	if (above.blockState.canBeReplaced()) {
 		let player = event.getPlayer()
 		let direction = player.getHorizontalFacing().toString()
 		if (direction == "north") {
@@ -27,40 +27,43 @@ function place_eye_event_common(event,result_id) {
 * @param {Internal.BlockRightClickedEventJS} event
 */
 function item_eye_place_event(event) {
-	if (event.facing == "up") {
-		let item = event.getItem()
-		if (item.getId() == "endrem:black_eye") {
-			place_eye_event_common(event,"kubejs:black_eye")
-		} else if (item.getId() == "endrem:cold_eye") {
-			place_eye_event_common(event,"kubejs:cold_eye")
-		} else if (item.getId() == "endrem:corrupted_eye") {
-			place_eye_event_common(event,"kubejs:corrupted_eye")
-		} else if (item.getId() == "endrem:cryptic_eye") {
-			place_eye_event_common(event,"kubejs:cryptic_eye")
-		} else if (item.getId() == "endrem:cursed_eye") {
-			place_eye_event_common(event,"kubejs:cursed_eye")
-		} else if (item.getId() == "endrem:evil_eye") {
-			place_eye_event_common(event,"kubejs:evil_eye")
-		} else if (item.getId() == "endrem:exotic_eye") {
-			place_eye_event_common(event,"kubejs:exotic_eye")
-		} else if (item.getId() == "endrem:guardian_eye") {
-			place_eye_event_common(event,"kubejs:guardian_eye")
-		} else if (item.getId() == "endrem:lost_eye") {
-			place_eye_event_common(event,"kubejs:lost_eye")
-		} else if (item.getId() == "endrem:magical_eye") {
-			place_eye_event_common(event,"kubejs:magical_eye")
-		} else if (item.getId() == "endrem:nether_eye") {
-			place_eye_event_common(event,"kubejs:nether_eye")
-		} else if (item.getId() == "endrem:old_eye") {
-			place_eye_event_common(event,"kubejs:old_eye")
-		} else if (item.getId() == "endrem:rogue_eye") {
-			place_eye_event_common(event,"kubejs:rogue_eye")
-		} else if (item.getId() == "endrem:undead_eye") {
-			place_eye_event_common(event,"kubejs:undead_eye")
-		} else if (item.getId() == "endrem:witch_eye") {
-			place_eye_event_common(event,"kubejs:witch_eye")
-		} else if (item.getId() == "endrem:wither_eye") {
-			place_eye_event_common(event,"kubejs:wither_eye")
+	if (event.getFacing() == "up") {
+		let frame = event.getBlock()
+		if (frame.getId() != "endrem:ancient_portal_frame") {
+			let item = event.getItem()
+			if (item.getId() == "endrem:black_eye") {
+				place_eye_event_common(event,"kubejs:black_eye")
+			} else if (item.getId() == "endrem:cold_eye") {
+				place_eye_event_common(event,"kubejs:cold_eye")
+			} else if (item.getId() == "endrem:corrupted_eye") {
+				place_eye_event_common(event,"kubejs:corrupted_eye")
+			} else if (item.getId() == "endrem:cryptic_eye") {
+				place_eye_event_common(event,"kubejs:cryptic_eye")
+			} else if (item.getId() == "endrem:cursed_eye") {
+				place_eye_event_common(event,"kubejs:cursed_eye")
+			} else if (item.getId() == "endrem:evil_eye") {
+				place_eye_event_common(event,"kubejs:evil_eye")
+			} else if (item.getId() == "endrem:exotic_eye") {
+				place_eye_event_common(event,"kubejs:exotic_eye")
+			} else if (item.getId() == "endrem:guardian_eye") {
+				place_eye_event_common(event,"kubejs:guardian_eye")
+			} else if (item.getId() == "endrem:lost_eye") {
+				place_eye_event_common(event,"kubejs:lost_eye")
+			} else if (item.getId() == "endrem:magical_eye") {
+				place_eye_event_common(event,"kubejs:magical_eye")
+			} else if (item.getId() == "endrem:nether_eye") {
+				place_eye_event_common(event,"kubejs:nether_eye")
+			} else if (item.getId() == "endrem:old_eye") {
+				place_eye_event_common(event,"kubejs:old_eye")
+			} else if (item.getId() == "endrem:rogue_eye") {
+				place_eye_event_common(event,"kubejs:rogue_eye")
+			} else if (item.getId() == "endrem:undead_eye") {
+				place_eye_event_common(event,"kubejs:undead_eye")
+			} else if (item.getId() == "endrem:witch_eye") {
+				place_eye_event_common(event,"kubejs:witch_eye")
+			} else if (item.getId() == "endrem:wither_eye") {
+				place_eye_event_common(event,"kubejs:wither_eye")
+			}
 		}
 	}		
 }

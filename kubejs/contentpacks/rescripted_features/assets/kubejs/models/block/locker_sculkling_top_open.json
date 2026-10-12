@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "kubejs:block/pool_locker_sculkling",
-		"particle": "kubejs:block/pool_locker_sculkling"
+		"0": "kubejs:block/pool_lockers/sculkling",
+		"particle": "kubejs:block/pool_lockers/sculkling"
 	},
 	"elements": [
 		{

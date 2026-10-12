@@ -1,0 +1,12 @@
+{
+  "original": {
+    "name": "amethyst_1",
+    "builders": ["Appocryptha"],
+    "slices": [
+      "amethyst_1/slice1_alt1",
+      "amethyst_1/slice2_alt1",
+      "amethyst_1/slice3_alt1",
+      "amethyst_1/slice4_alt1"
+    ]
+  }
+}

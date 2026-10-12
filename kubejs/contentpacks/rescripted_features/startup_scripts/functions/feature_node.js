@@ -117,6 +117,11 @@ function spawn_mob(node,level){
 		let mob = level.createEntity("minecraft:blaze")
 		mob.setPos(pos_x + 0.5,pos_y,pos_z + 0.5)
 		mob.spawn()
+	} else if (mob_type == "creaking") {
+		let mob = level.createEntity("palegardenbackport:creaking")
+		mob.mergeNbt({"PersistenceRequired":true,"Invulnerable":true})
+		mob.setPos(pos_x + 0.5,pos_y,pos_z + 0.5)
+		mob.spawn()
 	}
 	node.set("air")
     return 1

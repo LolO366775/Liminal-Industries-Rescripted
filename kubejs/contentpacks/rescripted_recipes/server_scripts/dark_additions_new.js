@@ -105,7 +105,6 @@ function recipes_empowering(event){
 		},
 		"time": 100
 	})
-	event.smelting("thermal:rich_slag", "immersiveengineering:slag_gravel")
 
 	event.custom({
 		"type": "create:item_application",

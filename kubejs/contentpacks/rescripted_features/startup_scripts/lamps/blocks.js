@@ -127,6 +127,16 @@ function modify_ceilling_lamp_on(register_lamp) {
 	register_lamp.lightLevel(1.0)
 	register_lamp.tagBlock('ceiling_lamp_on')
 }
+/**
+* @param {Internal.BasicBlockJS$Builder} register_lamp
+*/
+function modify_ceilling_lamp_off(register_lamp) {
+	register_lamp.tagBlock('ceiling_lamp_off')
+	//register_lamp.blockEntity(entityInfo => {})
+	/*register_lamp.randomTick(tick => {
+		global.tick_ceiling_lamp_off(tick.block)
+	})*/
+}
 //this needs to be hooked up to the backbone
 StartupEvents.registry('block', event => {
 	//Yellow Lamps
@@ -136,7 +146,7 @@ StartupEvents.registry('block', event => {
 	modify_ceilling_lamp_dying(register_ceilling_lamp_basic(event,'ceilling_lamp_dying','Ceiling Lamp (Dying)','yellow'),"yellow")
 	modify_ceilling_lamp_blinking(register_ceilling_lamp_basic(event,'ceilling_lamp_blinking','Ceiling Lamp (Blinking)','yellow'),"yellow")
 	modify_ceilling_lamp_buzzing(register_ceilling_lamp_basic(event,'ceilling_lamp_buzzing','Ceiling Lamp (Buzzing)','yellow'),"yellow")
-	register_ceilling_lamp_basic(event,'ceilling_lamp_off','Ceiling Lamp (Off)','yellow')
+	modify_ceilling_lamp_off(register_ceilling_lamp_basic(event,'ceilling_lamp_off','Ceiling Lamp (Off)','yellow'))
 	register_ceilling_lamp_basic(event,'ceilling_lamp_broken','Ceiling Lamp (Broken)','yellow')
 	//White Lamps
 	modify_ceilling_lamp_on(register_ceilling_lamp_basic(event,'ceilling_lamp2','White Ceiling Lamp','white'))
@@ -145,7 +155,7 @@ StartupEvents.registry('block', event => {
 	modify_ceilling_lamp_dying(register_ceilling_lamp_basic(event,'ceilling_lamp2_dying','White Ceiling Lamp (Dying)','white'),"white")
 	modify_ceilling_lamp_blinking(register_ceilling_lamp_basic(event,'ceilling_lamp2_blinking','White Ceiling Lamp (Blinking)','white'),"white")
 	modify_ceilling_lamp_buzzing(register_ceilling_lamp_basic(event,'ceilling_lamp2_buzzing','White Ceiling Lamp (Buzzing)','white'),"white")
-	register_ceilling_lamp_basic(event,'ceilling_lamp2_off','White Ceiling Lamp (Off)','white')
+	modify_ceilling_lamp_off(register_ceilling_lamp_basic(event,'ceilling_lamp2_off','White Ceiling Lamp (Off)','white'))
 	register_ceilling_lamp_basic(event,'ceilling_lamp2_broken','White Ceiling Lamp (Broken)','white')
 	//Red Lamps
 	modify_ceilling_lamp_on(register_ceilling_lamp_basic(event,'ceilling_lamp_red','Red Ceiling Lamp','red'))
@@ -154,6 +164,6 @@ StartupEvents.registry('block', event => {
 	modify_ceilling_lamp_dying(register_ceilling_lamp_basic(event,'ceilling_lamp_red_dying','Red Ceiling Lamp (Dying)','yellow'),"red")
 	modify_ceilling_lamp_blinking(register_ceilling_lamp_basic(event,'ceilling_lamp_red_blinking','Red Ceiling Lamp (Blinking)','red'),"red")
 	modify_ceilling_lamp_buzzing(register_ceilling_lamp_basic(event,'ceilling_lamp_red_buzzing','Red Ceiling Lamp (Buzzing)','red'),"red")
-	register_ceilling_lamp_basic(event,'ceilling_lamp_red_off','Red Ceiling Lamp (Off)','Red')
+	modify_ceilling_lamp_off(register_ceilling_lamp_basic(event,'ceilling_lamp_red_off','Red Ceiling Lamp (Off)','Red'))
 	register_ceilling_lamp_basic(event,'ceilling_lamp_red_broken','Red Ceiling Lamp (Broken)','red')
 })

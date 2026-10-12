@@ -1,4 +1,4 @@
-function loot_pool_floaties(){
+/*function loot_pool_floaties(){
 	let pool_floaties = ["beachparty:floaty_boat","beachparty:rubber_ring_pelican","beachparty:rubber_ring_axolotl"]
 	let common_floaties = ["beachparty:pool_noodle","beachparty:rubber_ring_pink","beachparty:rubber_ring_blue","beachparty:rubber_ring_pink","beachparty:rubber_ring_blue","beachparty:rubber_ring_stripped"]
 	let loot_pool = pool_floaties.concat(common_floaties,common_floaties,common_floaties)
@@ -38,4 +38,4 @@ function loot_armour_trims(){
 function loot_beach_discs(){
 	let music_discs = ["beachparty:music_disc_beachparty","beachparty:music_disc_vocalista","beachparty:music_disc_wild_veins","beachparty:music_disc_pridelands","beachparty:music_disc_caribbean_beach","beachparty:overgrown_disc"]
 	return music_discs[Math.round((Math.random() * (music_discs.length -0.001))-0.5)]
-}
+}*/

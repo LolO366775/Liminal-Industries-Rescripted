@@ -29,14 +29,16 @@ StartupEvents.registry('block', event => {
 */
 global.tick_concrete_burner = entity => {
 	try {
+		let burner = entity.getBlock()
 		let level = entity.getLevel()
-		let [pos_x,pos_y,pos_z] = [entity.block.getX() + 0.5,entity.block.getY() + 0.5,entity.block.getZ() + 0.5]
+		let [pos_x,pos_y,pos_z] = [burner.getX() + 0.5,burner.getY() + 0.5,burner.getZ() + 0.5]
 		let nearby_entities = level.getEntitiesWithin(AABB.of(pos_x - 2, pos_y - 2, pos_z - 2, pos_x + 2, pos_y + 2, pos_z + 2))
 		nearby_entities.forEach(element => {
 			if (element.getType() == "minecraft:item") {
-				concrete_burner_pickup_fuel_on_ground(element,entity.getBlock())
+				concrete_burner_pickup_fuel_on_ground(element,burner)
 			}
-		})		
+		})
+		concrete_burner_burn_up(burner)
 	} catch (error) {/*entity.level.server.runCommandSilent("say " + error)*/}
 	concrete_burner_burn_fuel(entity.getBlock())
 }
@@ -72,7 +74,8 @@ function concrete_burner_burn_fuel(burner){
 	if (burner_fuel >= 1) {
 		burner_fuel--
 		burner_data.putInt("burner_fuel",burner_fuel)
-		concrete_burner_burn_above_block(burner)
+		concrete_burner_create_fire(burner)
+		concrete_burner_burn_random(burner)
 		return true
 	}
 	if (!burner_fuel >= 1) {
@@ -80,6 +83,18 @@ function concrete_burner_burn_fuel(burner){
 		burner.set(burner_id,{"facing":facing,"lit":"false"})
 	}
 	return false
+}
+/**
+* @param {Internal.BlockContainerJS} burner
+*/
+function concrete_burner_create_fire(burner){
+	let above = burner.getUp()
+	if (above.blockState.canBeReplaced()) {
+		if (0.05 >= Math.random()) {
+			above.set("minecraft:fire")
+			level.playSound(null,pos_x,pos_y,pos_z,"minecraft:item.flintandsteel.use","blocks",1,1)
+    	}
+	}
 }
 /**
 * @param {Internal.BlockContainerJS} burner
@@ -178,22 +193,97 @@ global.get_item_custom_burn_time = item => {
 }
 /**
 * @param {Internal.BlockContainerJS} burner
+* @param {Internal.BlockContainerJS} random_block
+* @param {Boolean} add_fuel
 */
-function concrete_burner_burn_above_block(burner){
-	let above = burner.getUp()
-	let level = burner.getLevel()
-	let block_pos = above.getPos()
-	let [pos_x,pos_y,pos_z] = [above.getX() + 0.5,above.getY() + 0.5,above.getZ() + 0.5]
-	if (above.blockState.isFlammable(level,block_pos,"down")) {
-		let layers = get_burned_out_ash_layers().toString()
-		above.set("supplementaries:ash",{"layers":layers})
-		level.spawnParticles("minecraft:smoke",false,pos_x,pos_y,pos_z,0.5,0.5,0.5,50,0)
-		level.spawnParticles("minecraft:campfire_cosy_smoke",false,pos_x,pos_y,pos_z,0.5,0.3,0.5,10,0)
-	} else if (above.getId() == "minecraft:air" || above.getId() == "torchmaster:invisible_light") {
-		if (0.05 >= Math.random()) {
-			above.set("minecraft:fire")
-			level.playSound(null,pos_x,pos_y,pos_z,"minecraft:item.flintandsteel.use","blocks",1,1)
-    	}
+function concrete_burner_burn_block(burner,random_block,add_fuel){
+	let level = random_block.getLevel()
+	let block_pos = random_block.getPos()
+	let [pos_x,pos_y,pos_z] = [random_block.getX() + 0.5,random_block.getY() + 0.5,random_block.getZ() + 0.5]
+	let pass = random_block.blockState.isFlammable(level,block_pos,"down")
+	let burn_item = random_block.getItem()
+	let burn_time = global.get_item_custom_burn_time(burn_item)
+	let pass2 = (burn_time >= 1)
+	if (!pass2) {
+		burn_time = 1
+	}
+	if (pass || pass2) {
+		if (add_fuel) {
+			concrete_burner_add_fuel(burner,random_block,burn_time)
+		}
+		if (!add_fuel) {
+			let layers = get_burned_out_ash_layers().toString()
+			random_block.set("supplementaries:ash",{"layers":layers})
+			level.spawnParticles("minecraft:smoke",false,pos_x,pos_y,pos_z,0.5,0.5,0.5,50,0)
+			level.spawnParticles("minecraft:campfire_cosy_smoke",false,pos_x,pos_y,pos_z,0.5,0.3,0.5,10,0)
+		}
+	}
+}
+/**
+* @param {Internal.BlockContainerJS} burner
+* @param {Internal.BlockContainerJS} random_block
+* @param {Number} burn_time
+*/
+function concrete_burner_add_fuel(burner,random_block,burn_time){
+	try {
+		let level = burner.getLevel()
+		let [pos_x,pos_y,pos_z] = [burner.getX() + 0.5,burner.getY() + 0.5,burner.getZ() + 0.5]
+		let burner_data = burner.getEntityData().getCompound("data")
+		let burner_fuel = burner_data.getInt("burner_fuel")
+		if (!burner_fuel >= 1) {
+			level.spawnParticles("minecraft:flame",false,pos_x,pos_y,pos_z,1,1,1,50,0.01)
+			level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.fire.ambient","blocks",1,2)
+			random_block.set("minecraft:air")
+			burner_fuel = burn_time
+			burner_data.putInt("burner_fuel",burner_fuel)
+			set_concrete_burner_burning(burner)
+			return true
+		}
+		return false		
+	} catch (error) {
+		return false		
+	}
+}
+/**
+* @param {Internal.BlockContainerJS} burner
+*/
+function concrete_burner_burn_up(burner){
+	let up = burner.getUp()
+	concrete_burner_burn_block(burner,up,true)
+}
+/**
+* @param {Internal.BlockContainerJS} burner
+*/
+function concrete_burner_burn_random(burner){
+	let random = burner.getUp()
+	/*if (0.3 > Math.random()) {
+		random = burner
+	} else if (0.3 > Math.random()) {
+		random = burner.getDown()
+	}*/
+	let north = random.getNorth()
+	let south = random.getSouth()
+	let east = random.getEast()
+	let west = random.getWest()
+	let add_fuel = false
+	if (0.10 > Math.random()) {
+		concrete_burner_burn_block(burner,north,add_fuel)
+	} else if (0.10 > Math.random()) {
+		concrete_burner_burn_block(burner,south,add_fuel)
+	} else if (0.10 > Math.random()) {
+		concrete_burner_burn_block(burner,east,add_fuel)
+	} else if (0.10 > Math.random()) {
+		concrete_burner_burn_block(burner,west,add_fuel)
+	} else if (0.10 > Math.random()) {
+		concrete_burner_burn_block(burner,north.getEast(),add_fuel)
+	} else if (0.10 > Math.random()) {
+		concrete_burner_burn_block(burner,north.getWest(),add_fuel)
+	} else if (0.10 > Math.random()) {
+		concrete_burner_burn_block(burner,south.getEast(),add_fuel)
+	} else if (0.10 > Math.random()) {
+		concrete_burner_burn_block(burner,south.getWest(),add_fuel)
+	} else {
+		concrete_burner_burn_block(burner,random,true)
 	}
 }
 /**

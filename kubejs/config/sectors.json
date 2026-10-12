@@ -10,7 +10,6 @@
 	"ring_void",
 	"ring_outer",
 	"sculk",
-	"community",
 	"safe",
 	"zero"
       ],
@@ -21,7 +20,7 @@
 	    {
 	      "type": "distance",
 	      "min": 0,
-	      "max": 200
+	      "max": 300
 	    }
           ]
 	},
@@ -36,28 +35,13 @@
 	    {
 	      "type": "distance",
 	      "min": 1501,
-	      "max": 1650
+	      "max": 1850
 	    }
           ]
 	},
 	"community": {
 	  "code": 7,
 	  "generation": [
-	    {
-	      "type": "distance",
-	      "min": 200,
-	      "max": 300
-	    },
-	    {
-	      "type": "distance",
-	      "min": 1201,
-	      "max": 1350
-	    },
-	    {
-	      "type": "distance",
-	      "min": 1501,
-	      "max": 1850
-	    },
 	    {
 	      "type": "distance",
 	      "min": 2501
@@ -80,7 +64,7 @@
 	    {
 	      "type": "distance",
 	      "min": 1001,
-	      "max": 1300
+	      "max": 1350
 	    },
 	    {
 	      "type": "distance",

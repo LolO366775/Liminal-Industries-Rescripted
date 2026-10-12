@@ -11,5 +11,8 @@ BlockEvents.leftClicked(event => {
 	}
 })
 ServerEvents.recipes(event => {
-
+	let loader = "rescripted" //rescripted-legacy-custom
+	if (loader == "rescripted") {
+		global.rescripted_recipes(event)
+	}
 })

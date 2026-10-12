@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "kubejs:block/open_pool_locker",
-		"particle": "kubejs:block/open_pool_locker"
+		"0": "kubejs:block/pool_lockers/open",
+		"particle": "kubejs:block/pool_lockers/open"
 	},
 	"elements": [
 		{

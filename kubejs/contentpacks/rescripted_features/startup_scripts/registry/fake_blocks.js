@@ -46,6 +46,7 @@ function block_registry_fake_blocks(event) {
 		.soundType("cherry_wood")
 		.defaultCutout()
 		.tagBlock('minecraft:mineable/axe')
+		.tagBlock('kubejs:border_wallpapers')
 		.property(BlockProperties.DOWN)
 		.property(BlockProperties.UP)
 		.placementState(c =>{

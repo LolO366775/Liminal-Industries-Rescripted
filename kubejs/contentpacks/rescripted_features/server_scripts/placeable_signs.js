@@ -99,7 +99,7 @@ BlockEvents.rightClicked("kubejs:traffic_pole",event => {
 })
 ServerEvents.recipes(event => {
 	event.recipes.create.milling([Item.of('kubejs:scrap').withChance(0.75)],'minecraft:iron_ingot')
-	event.recipes.minecraft.stonecutting("2x kubejs:traffic_pole", "kubejs:scrap")
+	event.recipes.minecraft.stonecutting("kubejs:traffic_pole", "kubejs:scrap")
 	event.recipes.minecraft.stonecutting("kubejs:arrow1_sign_item", "kubejs:scrap")
 	event.recipes.minecraft.stonecutting("kubejs:arrow2_sign_item", "kubejs:scrap")
 	event.recipes.minecraft.stonecutting("kubejs:cross_sign_item", "kubejs:scrap")

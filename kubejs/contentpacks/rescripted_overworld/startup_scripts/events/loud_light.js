@@ -43,15 +43,45 @@ function ceiling_lamp_not_playing_tick(speaker) {
 * @param {String} sound
 * @param {Number} duration
 */
-function ceiling_lamp_play_sound(speaker,sound,duration) {
-	let speaker_data = speaker.getEntityData().getCompound("data")
+function ceiling_lamp_play_sound(lamp,sound,duration) {
+	let speaker_data = lamp.getEntityData().getCompound("data")
 	speaker_data.putInt("time_left",duration)
 	speaker_data.putBoolean("playing",true)
 	try {
-		let level = speaker.getLevel()
-		let [pos_x,pos_y,pos_z] = [speaker.getX() + 0.5,speaker.getY(),speaker.getZ() + 0.5]
-		level.playSound(null,pos_x,pos_y,pos_z,sound,"blocks",5,1)
+		let level = lamp.getLevel()
+		let hearing_range = 5
+		let [pos_x,pos_y,pos_z] = [lamp.getX() + 0.5,lamp.getY(),lamp.getZ() + 0.5]
+		if (can_nearby_player_hear_buzzing(lamp, hearing_range)) {
+			if (is_lamp_exposed(lamp)) {
+				level.playSound(null,pos_x,pos_y,pos_z,sound,"ambient",hearing_range,1)				
+			}
+		}
 	} catch (error) {}
+}
+/**
+* @param {Internal.BlockContainerJS} lamp
+*/
+function is_lamp_exposed(lamp) {
+	let [north,south,east,west] = [lamp.getNorth(),lamp.getSouth(),lamp.getEast(),lamp.getWest()]
+	let [up,down] = [lamp.getUp(),lamp.getDown()]
+	if (north.blockState.canBeReplaced()) {return true}
+	if (south.blockState.canBeReplaced()) {return true}
+	if (east.blockState.canBeReplaced()) {return true}
+	if (west.blockState.canBeReplaced()) {return true}
+	if (up.blockState.canBeReplaced()) {return true}
+	if (down.blockState.canBeReplaced()) {return true}
+	return false
+}
+/**
+* @param {Internal.BlockContainerJS} lamp
+* @param {number} distance
+*/
+function can_nearby_player_hear_buzzing(lamp, distance){
+	let check_distance = (distance * 3)
+	let [pos_x,pos_y,pos_z] = [lamp.getX() + 0.5,lamp.getY() + 0.5,lamp.getZ() + 0.5]
+	let player = lamp.level.getNearestPlayer(pos_x,pos_y,pos_z,check_distance,false)
+	if (player != null) {return true}
+	return false
 }
 /**
 * @param {Internal.BlockContainerJS} lamp

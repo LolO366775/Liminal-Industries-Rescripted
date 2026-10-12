@@ -1,0 +1,55 @@
+ServerEvents.commandRegistry(event => {
+	const { commands: Commands, arguments: Arguments} = event 
+   	event.register(
+        Commands.literal("backrooms")
+		.requires(source => source.hasPermission(2))
+		.then(Commands.literal("generate")
+		.requires(source => source.hasPermission(2))
+		.then(Commands.literal("slice")
+		.requires(source => source.hasPermission(2))
+		.then(Commands.argument('block_pos', Arguments.BLOCK_POS.create(event))
+		.requires(source => source.hasPermission(2))
+		.then(Commands.literal("from")
+		.requires(source => source.hasPermission(2))
+		.then(Commands.argument('room_id', Arguments.STRING.create(event))
+		.requires(source => source.hasPermission(2))
+            .executes(ctx => {
+				const position = Arguments.VEC3.getResult(ctx, "block_pos")
+				const room_id = Arguments.STRING.getResult(ctx, "room_id")
+				let [pos_x, pos_y, pos_z] = [position.x(), position.y(), position.z()]
+				let level = ctx.source.getLevel()
+				let node = level.getBlock(pos_x,pos_y,pos_z)
+				global.generate_template_slices_from_room_bridge(room_id,node)
+				return 1
+            })
+        )))))
+    )
+	event.register(
+        Commands.literal("backrooms")
+		.requires(source => source.hasPermission(2))
+		.then(Commands.literal("generate")
+		.requires(source => source.hasPermission(2))
+		.then(Commands.literal("slice")
+		.requires(source => source.hasPermission(2))
+		.then(Commands.argument('block_pos', Arguments.BLOCK_POS.create(event))
+		.requires(source => source.hasPermission(2))
+		.then(Commands.argument('slice_path', Arguments.STRING.create(event))
+		.requires(source => source.hasPermission(2))
+		.then(Commands.argument('slice_num', Arguments.INTEGER.create(event))
+		.requires(source => source.hasPermission(2))
+		.then(Commands.argument('max_slices', Arguments.INTEGER.create(event))
+		.requires(source => source.hasPermission(2))
+            .executes(ctx => {
+				const position = Arguments.VEC3.getResult(ctx, "block_pos")
+				const slice_path = Arguments.STRING.getResult(ctx, "slice_path")
+				const slice_num = Arguments.INTEGER.getResult(ctx, "slice_num")
+				const max_slices = Arguments.INTEGER.getResult(ctx, "max_slices")
+				let [pos_x, pos_y, pos_z] = [position.x(), position.y(), position.z()]
+				let level = ctx.source.getLevel()
+				let node = level.getBlock(pos_x,pos_y,pos_z)
+				global.generate_template_slice_bridge(slice_path,slice_num,max_slices,node)
+				return 1
+            })
+        ))))))
+    )
+})

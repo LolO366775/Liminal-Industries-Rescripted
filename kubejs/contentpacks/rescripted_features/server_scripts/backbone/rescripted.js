@@ -71,6 +71,8 @@ function block_right_clicked_rescripted(event) {
 	if (block.hasTag("kubejs:perm_convertable")) {
 		perm_conversion_event(event)
 	}
+	//elemental cakes placement
+	elemental_cakes_placement_event_check(event)
 }
 /**
 * @param {Internal.BlockLeftClickedEventJS} event

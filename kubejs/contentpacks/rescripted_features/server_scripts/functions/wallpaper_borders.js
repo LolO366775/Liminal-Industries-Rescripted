@@ -82,8 +82,8 @@ function left_click_hammer_on_wallpaper(wallpaper,player){
 function build_border_on_wallpaper_common(wallpaper){
 	let [pos_x,pos_y,pos_z] = [wallpaper.getX() + 0.5,wallpaper.getY() + 0.5,wallpaper.getZ() + 0.5]
 	let level = wallpaper.getLevel()
-	level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.wood.place", "blocks",1,1.6)
-	level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.villager.work_fletcher", "blocks",0.5,1.6)
+	level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.wood.place", "blocks",0.3,1.6)
+	level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.villager.work_fletcher", "blocks",0.2,1.6)
 }
 /**
 * @param {Internal.BlockContainerJS} wallpaper
@@ -91,6 +91,6 @@ function build_border_on_wallpaper_common(wallpaper){
 function remove_border_on_wallpaper_common(wallpaper){
 	let [pos_x,pos_y,pos_z] = [wallpaper.getX() + 0.5,wallpaper.getY() + 0.5,wallpaper.getZ() + 0.5]
 	let level = wallpaper.getLevel()
-	level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.wood.break", "blocks",1,1.6)
-	level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.zombie.break_wooden_door", "blocks",0.5,1.6)
+	level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.wood.break", "blocks",0.3,1.6)
+	level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.zombie.break_wooden_door", "blocks",0.1,1.6)
 }

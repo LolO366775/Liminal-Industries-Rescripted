@@ -52,6 +52,7 @@ BlockEvents.broken(event => {
     if (sign.hasTag("kubejs:traffic_signs")) {
         let drop = get_unique_sign_drop(sign)
         sign.popItem(drop)
+        sign.popItem("kubejs:scrap")
     }
 })
 /**
