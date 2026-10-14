@@ -1,0 +1,13 @@
+{
+  "modifier.liminal_tinkering": {
+    "pliable":    "#ecc599",
+    "fragrant":    "#b33e00",
+    "modifier_missing":    "#f500f5",
+    "craggy":    "#86847a"
+  },
+  "material.liminal_tinkering": {
+    "cardboard":    "#ecc599",
+    "wallpaper":    "#e1e3a6",
+    "concrete_piece":    "#86847a"
+  }
+}

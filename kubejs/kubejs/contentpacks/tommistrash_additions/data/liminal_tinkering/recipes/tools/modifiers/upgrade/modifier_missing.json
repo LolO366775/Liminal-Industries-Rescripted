@@ -1,0 +1,17 @@
+{
+  "type": "tconstruct:modifier",
+  "allow_crystal": true,
+  "inputs": [
+    {
+      "item": "kubejs:error_item"
+    }
+  ],
+  "level": 1,
+  "result": "liminal_tinkering:modifier_missing",
+  "slots": {
+  "upgrades": 1
+  },
+  "tools": {
+    "tag": "tconstruct:modifiable/harvest"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "rescripted_vandalism",
+  "name": "Liminal Industries: Vandalism",
+  "description": "An mod for Liminal Industries recreating the vandalism system",
+  "version": "1.0.0",
+  "authors": [
+    "Dusklore",
+    "Appocryptha"
+  ]
+}
