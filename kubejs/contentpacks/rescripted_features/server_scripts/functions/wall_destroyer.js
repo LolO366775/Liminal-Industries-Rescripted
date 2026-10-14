@@ -49,11 +49,14 @@ function wall_destroyer_right_click(machine) {
 	let pos_x = wall.getX()
 	let pos_y = wall.getY()
 	let pos_z = wall.getZ()
-	if (!wall.hasTag("waystones:waystone")) {
+	wall.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.shroomlight.break","blocks",3,0)
+	wall.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.respawn_anchor.deplete","blocks",1,0)
+	if (wall.hasTag("kubejs:pool_lockers")) {
+		global.pool_locker_break(wall)
+		wall.level.spawnParticles("minecraft:dust_color_transition 0 0.5 1 5 0 1 1", false, pos_x + 0.5, pos_y, pos_z + 0.5, 0.5, 0.5, 0.5, 50, 0)
+	} else if (!wall.hasTag("waystones:waystone")) {
 		if (wall.id != "minecraft:air" && (other_machine.properties.get("facing") == opposite_direction)) {
 			wall.set("minecraft:air")
-			wall.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.shroomlight.break","blocks",3,0)
-			wall.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.respawn_anchor.deplete","blocks",1,0)
 			wall.level.spawnParticles("minecraft:dust_color_transition 0 0.5 1 5 0 1 1", false, pos_x + 0.5, pos_y, pos_z + 0.5, 0.5, 0.5, 0.5, 50, 0)
 		}
 	}
