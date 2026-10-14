@@ -18,6 +18,7 @@ function register_locker(event,locker_id,type,display_name) {
     builder.soundType("metal")
 	builder.unbreakable()
 	builder.tagBlock('wither_immune')
+	builder.tagBlock('kubejs:pool_lockers')
 	builder.displayName(display_name)
 	builder.transparent(true)
 	builder.defaultCutout()
