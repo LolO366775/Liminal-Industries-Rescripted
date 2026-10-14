@@ -1,5 +1,4 @@
 ServerEvents.recipes(event => {
-
 	event.shaped(
 		'2x kubejs:long_range_wall_destroyer',
 		[ 
@@ -13,7 +12,6 @@ ServerEvents.recipes(event => {
 		  B: 'kubejs:half_frame_bottom',
 		  A: 'immersiveengineering:component_electronic_adv'
 	})
-
 })
 
 /**
@@ -23,11 +21,12 @@ function break_wall(wall) {
 	let pos_x = wall.getX()
 	let pos_y = wall.getY()
 	let pos_z = wall.getZ()
-	if (!wall.hasTag("waystones:waystone")) {
+	if (wall.hasTag("kubejs:pool_lockers")) {
+		global.pool_locker_break(wall)
+		wall.level.spawnParticles("minecraft:dust_color_transition 0 0.5 1 5 0 1 1", false, pos_x + 0.5, pos_y, pos_z + 0.5, 0.5, 0.5, 0.5, 50, 0)
+	} else if (!wall.hasTag("waystones:waystone")) {
 		if (wall.id != "kubejs:long_range_wall_destroyer") {
 			wall.set("minecraft:air")
-			wall.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.shroomlight.break","blocks",3,0)
-			wall.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.respawn_anchor.deplete","blocks",1,0)
 			wall.level.spawnParticles("minecraft:dust_color_transition 0 0.5 1 5 0 1 1", false, pos_x + 0.5, pos_y, pos_z + 0.5, 0.5, 0.5, 0.5, 50, 0)
 		}
 	}
@@ -45,12 +44,16 @@ function get_wall_offset(wall,direction) {
 	if (direction == "down") {return wall.getDown()}
 	return wall
 }
-
 /**
 * @param {Internal.BlockContainerJS} wall
 * @param {String} direction
 */
 function break_wall_line(wall,direction) {
+	let pos_x = wall.getX()
+	let pos_y = wall.getY()
+	let pos_z = wall.getZ()
+	wall.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.shroomlight.break","blocks",3,0)
+	wall.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:block.respawn_anchor.deplete","blocks",1,0)
 	for (let count = 0; count < 10; count++) {
 		if (wall.id == "kubejs:long_range_wall_destroyer" && wall.properties.get("facing") == direction) {
 			break
@@ -60,7 +63,6 @@ function break_wall_line(wall,direction) {
 		wall = get_wall_offset(wall,direction)
 	}
 }
-
 /**
 * @param {Internal.BlockContainerJS} wall
 * @param {String} direction
