@@ -1,6 +1,6 @@
 Here be the instructions for how to use this effectively:
 
-If you are confused about anything you can ask me in the Liminal industries Rewritten discord, My username in discord is LolO
+If you are confused about anything you can ask me in the Liminal Industries Rescripted discord, My username in discord is LolO
 
 This readme is being written from the perspective of LolO, all instances of I, me, my, etc. refer to LolO
 
