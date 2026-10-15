@@ -1,5 +1,5 @@
 StartupEvents.registry('block', event => {
-  event.create('seared_carpet') // Create a new block with ID 'kubejs:example_block'
+  event.create('seared_flooring_block') // Create a new block with ID 'kubejs:example_block'
   .tagBlock('tconstruct:smeltery/floor')
   .tagBlock('tconstruct:smeltery')
   .fullBlock(true)
