@@ -21,6 +21,7 @@ BlockEvents.rightClicked('kubejs:floor_tiles', event => {
         'kubejs:checker_flooring': 'kubejs:checker_flooring_block',
 		'create:cardboard': 'kubejs:cardboard_flooring_block',
         'tconstruct:seared_brick':'kubejs:seared_flooring_block',
+        'tconstruct:scorched_brick':'kubejs:scorched_flooring_block',
     }
 
     const heldItem = event.player.mainHandItem.id
@@ -59,7 +60,7 @@ BlockEvents.rightClicked(event => {
         'kubejs:polished_wood_flooring_block',
         'kubejs:checker_flooring_block',
         'kubejs:cardboard_flooring_block',
-        'kubejs:seared_flooring_block'
+        'kubejs:seared_flooring_block', 'kubejs:scorched_flooring_block'
     ]	
     if (!flooringBlocks.includes(event.block.id))
         return
@@ -82,6 +83,11 @@ BlockEvents.rightClicked(event => {
         if (!event.item.hasTag('minecraft:pickaxes'))
             return
         flooringItem = 'tconstruct:seared_brick'
+        breakSound = 'minecraft:block.stone.break'
+    } else if (blockId =='kubejs:scorched_flooring_block') {
+        if (!event.item.hasTag('minecraft:pickaxes'))
+            return
+        flooringItem = 'tconstruct:scorched_brick'
         breakSound = 'minecraft:block.stone.break'
     } else {
         if (!event.item.hasTag('minecraft:axes'))
