@@ -26,4 +26,4 @@ ServerEvents.recipes(event => {
 	almond_setup('blue')
 	almond_setup('red')
 	almond_setup('green')
-}
+})
