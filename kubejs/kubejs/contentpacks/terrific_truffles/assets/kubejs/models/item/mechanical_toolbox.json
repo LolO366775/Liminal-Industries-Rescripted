@@ -1,8 +1,0 @@
-
-{
-  "parent": "create:item/brown_toolbox",
-  "textures": {
-    "0": "kubejs:block/mechanical_toolbox",
-    "particle": "kubejs:block/mechanical_toolbox"
-  }
-}
