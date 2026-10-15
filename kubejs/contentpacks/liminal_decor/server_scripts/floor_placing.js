@@ -19,7 +19,8 @@ BlockEvents.rightClicked('kubejs:floor_tiles', event => {
         'kubejs:treated_wood_flooring': 'kubejs:treated_wood_flooring_block',
         'kubejs:polished_wood_flooring': 'kubejs:polished_wood_flooring_block',
         'kubejs:checker_flooring': 'kubejs:checker_flooring_block',
-		'create:cardboard': 'kubejs:cardboard_flooring_block'
+		'create:cardboard': 'kubejs:cardboard_flooring_block',
+        'tconstruct:seared_brick':'kubejs:seared_carpet',
     }
 
     const heldItem = event.player.mainHandItem.id
