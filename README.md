@@ -41,10 +41,10 @@ This readme is being written from the perspective of LolO, all instances of I, m
 12. Copy "https:/<i></i>/github.com/LolO366775/Liminal-Industries-Rescripted" (this is the main repository's url)
 13. Run "git remote --add upstream \<main url\>"
 14. To test if everything has worked so far, run "git remote -v". The output should look like this:\
-origin  https:/<i></i>/github.com/LolO366775/Liminal-Industries-Rescripted (fetch)\
-origin  https:/<i></i>/github.com/LolO366775/Liminal-Industries-Rescripted (pull)\
-upstream  \<fork url\> (fetch)\
-upstream  \<fork url\> (pull)
+origin  \<fork url\> (fetch)\
+origin  \<fork url\> (pull)\
+upstream  https:/<i></i>/github.com/LolO366775/Liminal-Industries-Rescripted (fetch)\
+upstream  https:/<i></i>/github.com/LolO366775/Liminal-Industries-Rescripted (pull)
 15. If that looks correct then run "git fetch" and then run "git pull"
 16. Go back to file explorer and check to see if there is a \[.gitignore\] file
 17. If there is, open it in a text editor. If it isn't empty than you should be good.
