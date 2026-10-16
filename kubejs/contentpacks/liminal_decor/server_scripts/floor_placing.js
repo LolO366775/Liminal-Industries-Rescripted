@@ -1,42 +1,49 @@
+const floor_tiles = ['kubejs:floor_tiles','kubejs:drain','kubejs:drain_permament']
 //placing
-BlockEvents.rightClicked('kubejs:floor_tiles', event => {
 
-    if (event.hand != 'MAIN_HAND')
-        return
+floor_tiles.forEach(tileable_block => 
 
-    const flooringMap = {
-        'kubejs:oak_flooring': 'kubejs:oak_flooring_block',
-        'kubejs:spruce_flooring': 'kubejs:spruce_flooring_block',
-        'kubejs:birch_flooring': 'kubejs:birch_flooring_block',
-        'kubejs:jungle_flooring': 'kubejs:jungle_flooring_block',
-        'kubejs:acacia_flooring': 'kubejs:acacia_flooring_block',
-        'kubejs:dark_oak_flooring': 'kubejs:dark_oak_flooring_block',
-        'kubejs:mangrove_flooring': 'kubejs:mangrove_flooring_block',
-        'kubejs:cherry_flooring': 'kubejs:cherry_flooring_block',
-        'kubejs:bamboo_flooring': 'kubejs:bamboo_flooring_block',
-        'kubejs:crimson_flooring': 'kubejs:crimson_flooring_block',
-        'kubejs:warped_flooring': 'kubejs:warped_flooring_block',
-        'kubejs:treated_wood_flooring': 'kubejs:treated_wood_flooring_block',
-        'kubejs:polished_wood_flooring': 'kubejs:polished_wood_flooring_block',
-        'kubejs:checker_flooring': 'kubejs:checker_flooring_block',
-		'create:cardboard': 'kubejs:cardboard_flooring_block'
-    }
+    BlockEvents.rightClicked(tileable_block, event => {
 
-    const heldItem = event.player.mainHandItem.id
+        if (event.hand != 'MAIN_HAND')
+            return
 
-    if (!(heldItem in flooringMap))
-        return
+        const flooringMap = {
+            'kubejs:oak_flooring': 'kubejs:oak_flooring_block',
+            'kubejs:spruce_flooring': 'kubejs:spruce_flooring_block',
+            'kubejs:birch_flooring': 'kubejs:birch_flooring_block',
+            'kubejs:jungle_flooring': 'kubejs:jungle_flooring_block',
+            'kubejs:acacia_flooring': 'kubejs:acacia_flooring_block',
+            'kubejs:dark_oak_flooring': 'kubejs:dark_oak_flooring_block',
+            'kubejs:mangrove_flooring': 'kubejs:mangrove_flooring_block',
+            'kubejs:cherry_flooring': 'kubejs:cherry_flooring_block',
+            'kubejs:bamboo_flooring': 'kubejs:bamboo_flooring_block',
+            'kubejs:crimson_flooring': 'kubejs:crimson_flooring_block',
+            'kubejs:warped_flooring': 'kubejs:warped_flooring_block',
+            'kubejs:treated_wood_flooring': 'kubejs:treated_wood_flooring_block',
+            'kubejs:polished_wood_flooring': 'kubejs:polished_wood_flooring_block',
+            'kubejs:checker_flooring': 'kubejs:checker_flooring_block',
+            'create:cardboard': 'kubejs:cardboard_flooring_block',
+            'tconstruct:seared_brick':'kubejs:seared_flooring_block',
+            'tconstruct:scorched_brick':'kubejs:scorched_flooring_block',
+        }
 
-    event.block.set(flooringMap[heldItem])
+        const heldItem = event.player.mainHandItem.id
 
-    if (!event.player.creativeMode) {
-        event.player.mainHandItem.shrink(1)
-    }
+        if (!(heldItem in flooringMap))
+            return
 
-    event.server.runCommandSilent(
-        `playsound minecraft:block.wood.place block @a ${event.block.x} ${event.block.y} ${event.block.z} 1 1`
-    )
+        event.block.set(flooringMap[heldItem])
+
+        if (!event.player.creativeMode) {
+            event.player.mainHandItem.shrink(1)
+        }
+
+        event.server.runCommandSilent(
+            `playsound minecraft:block.wood.place block @a ${event.block.x} ${event.block.y} ${event.block.z} 1 1`
+        )
 })
+)
 //scrapping
 BlockEvents.rightClicked(event => {
 
@@ -57,7 +64,8 @@ BlockEvents.rightClicked(event => {
         'kubejs:treated_wood_flooring_block',
         'kubejs:polished_wood_flooring_block',
         'kubejs:checker_flooring_block',
-        'kubejs:cardboard_flooring_block'
+        'kubejs:cardboard_flooring_block',
+        'kubejs:seared_flooring_block', 'kubejs:scorched_flooring_block'
     ]	
     if (!flooringBlocks.includes(event.block.id))
         return
@@ -75,6 +83,16 @@ BlockEvents.rightClicked(event => {
         if (!event.item.hasTag('minecraft:pickaxes'))
             return
         flooringItem = blockId.replace('_block', '')
+        breakSound = 'minecraft:block.stone.break'
+    } else if (blockId =='kubejs:seared_flooring_block') {
+        if (!event.item.hasTag('minecraft:pickaxes'))
+            return
+        flooringItem = 'tconstruct:seared_brick'
+        breakSound = 'minecraft:block.stone.break'
+    } else if (blockId =='kubejs:scorched_flooring_block') {
+        if (!event.item.hasTag('minecraft:pickaxes'))
+            return
+        flooringItem = 'tconstruct:scorched_brick'
         breakSound = 'minecraft:block.stone.break'
     } else {
         if (!event.item.hasTag('minecraft:axes'))
