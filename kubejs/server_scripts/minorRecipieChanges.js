@@ -19,15 +19,5 @@ ServerEvents.recipes(event => {
             F: 'create:crafting_blueprint'
             }
         )
-        // event.shaped('ae2:wireless_crafting_terminal', [
-        //     'C', 
-        //     'A',
-        //     'F'
-        //     ],{
-        //     A: 'ae2:crafting_terminal', 
-        //     C: 'ae2:wireless_receiver',
-        //     F: 'ae2:dense_energy_cell'
-        //     }
-        // )
     }
 })
