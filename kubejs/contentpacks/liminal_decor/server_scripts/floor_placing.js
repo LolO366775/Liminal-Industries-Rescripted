@@ -1,4 +1,4 @@
-const floor_tiles = ['kubejs:floor_tiles','kubejs:drain','kubejs:drain_permament']
+const floor_tiles = ['kubejs:floor_tiles','kubejs:drain','kubejs:drain_breakable']
 //placing
 
 floor_tiles.forEach(tileable_block => 
