@@ -145,7 +145,7 @@ function rescripted_recipes_metal_furniture(event){
 	melting(
 		'create:fluid_tank', 
 		'tconstruct:molten_copper', 
-		90
+		180
 	)
 
 	melting(
@@ -259,34 +259,49 @@ function rescripted_recipes_metal_furniture(event){
 			90
 		)
 	}
-	let signs = [
-		'kubejs:arrow1_sign_item',
-		'kubejs:arrow2_sign_item',
-		'kubejs:liminal_warning_sign_item',
-		'kubejs:liminal_warning2_sign_item',
-		'kubejs:box_sign_item',
-		'kubejs:infinity_sign_item',
-		'kubejs:skull_sign_item',
-		'kubejs:stop_sign_item',
-		'kubejs:explantion1_sign_item',
-		'kubejs:explantion2_sign_item',
-		'kubejs:unknown1_sign_item',
-		'kubejs:cross_sign_item',
-		'kubejs:exit_sign_item',
-		'kubejs:exit_sign2_item',
-		'kubejs:left_arrow_sign_item',
-		'kubejs:right_arrow_sign_item',
-		'kubejs:nowhere_sign_item',
-		'kubejs:monolith_sign_item',
-		'kubejs:witahdigroi_sign_item',
-		'kubejs:tripple_sign_item',
-		'kubejs:turn_back_sign_item',
-		'kubejs:inkblod_sign_item'
-	]
-	for (let index = 0; index < signs.length; index++) {
-		let sign = signs[index]
-		iron_melting(sign)
-		//event.shapeless('kubejs:scrap', [sign]) //removed due to duplicate recipe elsewhere?
-		event.recipes.create.milling([Item.of('kubejs:scrap')],sign)
-	}
+
+	event.custom({"type": "tconstruct:melting",
+
+			"ingredient": {
+			"tag": 'kubejs:traffic_signs'
+			},
+			"result": {
+			"amount": 90,
+			"tag": 'tconstruct:molten_iron'
+			},
+			"temperature": 800,
+			"time": 100
+		})
+	event.recipes.create.milling([Item.of('kubejs:scrap')],'#kubejs:traffic_signs')
+
+	// let signs = [
+	// 	'kubejs:arrow1_sign_item',
+	// 	'kubejs:arrow2_sign_item',
+	// 	'kubejs:liminal_warning_sign_item',
+	// 	'kubejs:liminal_warning2_sign_item',
+	// 	'kubejs:box_sign_item',
+	// 	'kubejs:infinity_sign_item',
+	// 	'kubejs:skull_sign_item',
+	// 	'kubejs:stop_sign_item',
+	// 	'kubejs:explantion1_sign_item',
+	// 	'kubejs:explantion2_sign_item',
+	// 	'kubejs:unknown1_sign_item',
+	// 	'kubejs:cross_sign_item',
+	// 	'kubejs:exit_sign_item',
+	// 	'kubejs:exit_sign2_item',
+	// 	'kubejs:left_arrow_sign_item',
+	// 	'kubejs:right_arrow_sign_item',
+	// 	'kubejs:nowhere_sign_item',
+	// 	'kubejs:monolith_sign_item',
+	// 	'kubejs:witahdigroi_sign_item',
+	// 	'kubejs:tripple_sign_item',
+	// 	'kubejs:turn_back_sign_item',
+	// 	'kubejs:inkblod_sign_item'
+	// ]
+	// for (let index = 0; index < signs.length; index++) {
+	// 	let sign = signs[index]
+	// 	iron_melting(sign)
+	// 	//event.shapeless('kubejs:scrap', [sign]) //removed due to duplicate recipe elsewhere?
+	// 	event.recipes.create.milling([Item.of('kubejs:scrap')],sign)
+	// }
 }
