@@ -10,7 +10,7 @@ ServerEvents.recipes(event => {
 		const curr_can=`kubejs:${color}_almond_water_can`
 		const empty_can='kubejs:empty_almond_water_can'
 		const third_ingrident=colorItem[color] 
-		const fillValue=1000
+		const fillValue=250
 //		console.info(curr_can)
 		event.recipes.create.filling(curr_can, [Fluid.of(curr_fluid_water, fillValue), empty_can])
 		event.recipes.create.emptying([Fluid.of(curr_fluid_water, fillValue),empty_can], curr_can)
