@@ -64,5 +64,11 @@ function rescripted_recipes_arc_furnace(event){
       'create:shadow_steel',
       'create:powdered_obsidian'
     )
+    arc_furnace(
+      'kubejs:dark_steel_crowbar',
+      'kubejs:crowbar',
+      'create:shadow_steel',
+      'create:powdered_obsidian'
+    )
   event.remove({output: 'enderio:confusing_powder'})
 }

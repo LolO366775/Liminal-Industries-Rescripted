@@ -1,5 +1,5 @@
 BlockEvents.rightClicked('kubejs:drain_breakable', event => {
-	if (event.item.id == 'kubejs:crowbar') {
+	if (event.item.hasTag("kubejs:crowbars")) {
 		let drain = event.block
 		let [pos_x, pos_y, pos_z] = [drain.getX(),drain.getY(),drain.getZ()]
 		drain.set("kubejs:poolrooms_portal")
@@ -18,7 +18,7 @@ BlockEvents.rightClicked('kubejs:drain_breakable', event => {
 	}
 })
 BlockEvents.rightClicked('kubejs:drain', event => {
-	if (event.item.id == 'kubejs:crowbar') {
+	if (event.item.hasTag("kubejs:crowbars")) {
 		let drain = event.block
 		if (event.level.getDimension() != "backrooms:poolrooms") {
 			let [pos_x, pos_y, pos_z] = [drain.getX(),drain.getY(),drain.getZ()]

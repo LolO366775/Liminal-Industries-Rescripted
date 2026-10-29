@@ -55,7 +55,7 @@ function spawn_node_feature_on_floor(node,feature_type){
 	for (let index = 0; index < 50; index++) {
 		if (is_below_feature_node_empty(below)) {
 			below = below.getDown()
-			below.level.server.runCommandSilent("say below!")
+			//below.level.server.runCommandSilent("say below!")
 		} else {
 			spawn_node_feature(below,feature_type)
 		}
@@ -77,6 +77,8 @@ function spawn_node_feature(node,feature_type){
 		place_waystone(node,"waystone")
 	} else if (feature_type == "cube") {
 		create_big_cube(node)
+	} else if (feature_type == "pot") {
+		place_decorated_pot(node)
 	}
 }
 /**
@@ -152,34 +154,25 @@ function place_spawner(spawner){
 	spawner.mergeEntityData(spawner_data)
     return 1
 }
-//This Function Is Imported From "generation/place_loot"
 /**
-* @param {Number} pos_x
-* @param {Number} pos_y
-* @param {Number} pos_z
-* @param {Internal.ServerLevel} level
+* @param {Internal.BlockContainerJS} furniture
 */
-function get_direction(pos_x,pos_y,pos_z,level){
-	let furniture = level.getBlock(pos_x,pos_y,pos_z)
-	if (furniture.getNorth().getId() != "minecraft:air") {return "north"}
-	if (furniture.getSouth().getId() != "minecraft:air") {return "south"}
-	if (furniture.getEast().getId() != "minecraft:air") {return "east"}
-	if (furniture.getWest().getId() != "minecraft:air") {return "west"}
+function get_direction(furniture){
+	if (!furniture.getNorth().blockState.canBeReplaced()) {return "north"}
+	if (!furniture.getSouth().blockState.canBeReplaced()) {return "south"}
+	if (!furniture.getEast().blockState.canBeReplaced()) {return "east"}
+	if (!furniture.getWest().blockState.canBeReplaced()) {return "west"}
 	let directions = ["north","south","east","west"]
 	return directions[Math.round((Math.random() * (directions.length -0.001))-0.5)]
 }
 /**
-* @param {Number} pos_x
-* @param {Number} pos_y
-* @param {Number} pos_z
-* @param {Internal.ServerLevel} level
+* @param {Internal.BlockContainerJS} furniture
 */
-function get_opposite_direction(pos_x,pos_y,pos_z,level){
-	let furniture = level.getBlock(pos_x,pos_y,pos_z)
-	if (furniture.getNorth().getId() != "minecraft:air") {return "south"}
-	if (furniture.getSouth().getId() != "minecraft:air") {return "north"}
-	if (furniture.getEast().getId() != "minecraft:air") {return "west"}
-	if (furniture.getWest().getId() != "minecraft:air") {return "east"}
+function get_opposite_direction(furniture){
+	if (!furniture.getNorth().blockState.canBeReplaced()) {return "south"}
+	if (!furniture.getSouth().blockState.canBeReplaced()) {return "north"}
+	if (!furniture.getEast().blockState.canBeReplaced()) {return "west"}
+	if (!furniture.getWest().blockState.canBeReplaced()) {return "east"}
 	let directions = ["north","south","east","west"]
 	return directions[Math.round((Math.random() * (directions.length -0.001))-0.5)]
 }
@@ -278,7 +271,6 @@ function place_loot_water(furniture,placement,direction,loot_spot){
 * @param {Internal.BlockContainerJS} node
 */
 function place_loot_any(node,level){
-	let [pos_x, pos_y, pos_z] = [node.getX(),node.getY(),node.getZ()]
 	let node_data = node.getEntityData().getCompound("data")
 	let loot_type = node_data.getString("loot_type")
 	let loot = get_loot(loot_type)
@@ -289,8 +281,8 @@ function place_loot_any(node,level){
 	}
 	let loot_placement = loot["placement"]
 	let loot_dirction = "none"
-	if (loot_placement == "directional_opposite") {loot_dirction = get_opposite_direction(pos_x,pos_y,pos_z,level)} 
-	else if (loot_placement == "directional") {loot_dirction = get_direction(pos_x,pos_y,pos_z,level)}
+	if (loot_placement == "directional_opposite") {loot_dirction = get_opposite_direction(node)} 
+	else if (loot_placement == "directional") {loot_dirction = get_direction(node)}
 	place_loot(loot_id,loot_placement,loot_dirction,node)
     return 1
 }
@@ -322,6 +314,24 @@ function is_room_node_done_generating(loot_spot){
 	}
 	return false
 }
-
-
-
+/**
+* @param {Internal.BlockContainerJS} node
+*/
+function place_decorated_pot(node){
+	node.set("decorated_pot")
+	node.mergeEntityData({"sherds":get_pottery_sherds()})
+    return 1
+}
+function get_pottery_sherds(){
+	let sherds = ["minecraft:brick","minecraft:brick","minecraft:brick","minecraft:brick"]
+	try {
+		Utils.rollChestLoot('backrooms:pottery_sherds').forEach(item => {
+			console.log(item.getId())
+        	let random_spot = Math.round((Math.random() * (4-0.001))-0.5)
+			sherds[random_spot] = item.getId()
+		})		
+	} catch (error) {
+		//console.log(error)
+	}
+	return sherds
+}

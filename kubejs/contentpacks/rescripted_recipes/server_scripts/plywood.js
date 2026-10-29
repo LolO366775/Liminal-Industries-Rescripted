@@ -74,4 +74,23 @@ function recipes_plywood(event){
 		}
 	)
 	event.shapeless('kubejs:carpet_dust', "kubejs:carpet_dust_block")
+	//cheap automatic cardboard recipes
+	event.recipes.create.compacting('6x dustrial_decor:smooth_cardboard', ['4x dustrial_decor:cardboard'])
+	event.recipes.create.compacting('4x dustrial_decor:cardboard_box', ['4x dustrial_decor:folded_cardboard'])
+	//cheap automatic cardboard scrap recipes
+	event.recipes.create.milling([
+		Item.of('dustrial_decor:cardboard_scrap')
+	],
+	'dustrial_decor:smooth_cardboard'
+	)
+	event.recipes.create.milling([
+		Item.of('dustrial_decor:cardboard_scrap')
+	],
+	'dustrial_decor:folded_cardboard'
+	)
+	event.recipes.create.milling([
+		Item.of('dustrial_decor:cardboard_scrap')
+	],
+	'dustrial_decor:cardboard_box'
+	)
 }

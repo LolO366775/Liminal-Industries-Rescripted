@@ -2,6 +2,17 @@
 * @param {Internal.RecipesEventJS} event
 */
 function rescripted_recipes_cooking(event){
+  //powder_snow
+  event.recipes.create.mixing(Fluid.of("tconstruct:powdered_snow"),["4x neapolitan:ice_cubes",Fluid.of("minecraft:water")])
+  event.recipes.create.mixing(["kubejs:ice_cold_almond_water_can",Fluid.of("tconstruct:powdered_snow")],["kubejs:almond_water_can","4x neapolitan:ice_cubes",Fluid.of("minecraft:water")])
+  event.recipes.create.mixing(["kubejs:ice_cold_blue_almond_water_can",Fluid.of("tconstruct:powdered_snow")],["kubejs:blue_almond_water_can","4x neapolitan:ice_cubes",Fluid.of("minecraft:water")])
+  event.recipes.create.mixing(["kubejs:ice_cold_red_almond_water_can",Fluid.of("tconstruct:powdered_snow")],["kubejs:red_almond_water_can","4x neapolitan:ice_cubes",Fluid.of("minecraft:water")])
+  event.recipes.create.mixing(["kubejs:ice_cold_green_almond_water_can",Fluid.of("tconstruct:powdered_snow")],["kubejs:green_almond_water_can","4x neapolitan:ice_cubes",Fluid.of("minecraft:water")])
+  event.recipes.create.mixing(["kubejs:ice_cold_almond_water_can",Fluid.of("tconstruct:powdered_snow")],["kubejs:almond_water_can",Fluid.of("tconstruct:powdered_snow")])
+  event.recipes.create.mixing(["kubejs:ice_cold_blue_almond_water_can",Fluid.of("tconstruct:powdered_snow")],["kubejs:blue_almond_water_can",Fluid.of("tconstruct:powdered_snow")])
+  event.recipes.create.mixing(["kubejs:ice_cold_red_almond_water_can",Fluid.of("tconstruct:powdered_snow")],["kubejs:red_almond_water_can",Fluid.of("tconstruct:powdered_snow")])
+  event.recipes.create.mixing(["kubejs:ice_cold_green_almond_water_can",Fluid.of("tconstruct:powdered_snow")],["kubejs:green_almond_water_can",Fluid.of("tconstruct:powdered_snow")])
+  //almond water
   let pot_cooking = (container, ingredients, output) => {
     event.custom({
       "type": "farmersdelight:cooking",
@@ -51,6 +62,10 @@ function rescripted_recipes_cooking(event){
   mini_fridge("kubejs:blue_almond_water_can","kubejs:ice_cold_blue_almond_water_can")
   mini_fridge("kubejs:green_almond_water_can","kubejs:ice_cold_green_almond_water_can")
   mini_fridge("kubejs:red_almond_water_can","kubejs:ice_cold_red_almond_water_can")
+  event.recipes.thermal.chiller("kubejs:ice_cold_almond_water_can",[Fluid.of("minecraft:water",250),"kubejs:almond_water_can"])
+  event.recipes.thermal.chiller("kubejs:ice_cold_blue_almond_water_can",[Fluid.of("minecraft:water",250),"kubejs:blue_almond_water_can"])
+  event.recipes.thermal.chiller("kubejs:ice_cold_green_almond_water_can",[Fluid.of("minecraft:water",250),"kubejs:green_almond_water_can"])
+  event.recipes.thermal.chiller("kubejs:ice_cold_red_almond_water_can",[Fluid.of("minecraft:water",250),"kubejs:red_almond_water_can"])
   event.remove({id: 'minecraft:campfire'})
   event.remove({id: 'minecraft:soul_campfire'})
   event.shaped('minecraft:campfire', [
@@ -86,19 +101,19 @@ function rescripted_recipes_cooking(event){
 	)
   event.smelting('refurbished_furniture:toast', 'refurbished_furniture:bread_slice')
   try {
-	  event.recipes.create.mixing(Fluid.of('kubejs:carpet_fluid', 250), [Fluid.of('minecraft:water', 250), 'kubejs:cut_carpet'])
-	  event.recipes.create.mixing(Fluid.of('kubejs:almond_water', 250), [Fluid.of('kubejs:carpet_fluid', 250), 'neapolitan:dried_vanilla_pods'])
-	  event.recipes.create.mixing(Fluid.of('kubejs:unstable_compound', 100), [Fluid.of('kubejs:carpet_fluid', 250), 'thermal:redstone_mushroom_spores'])
-	  event.recipes.create.mixing(Fluid.of('kubejs:liquid_pain', 500), [Fluid.of('kubejs:almond_water', 250), Fluid.of('kubejs:unstable_compound', 250)])
-	  event.recipes.create.mixing('minecraft:gunpowder', [Fluid.of('kubejs:liquid_pain', 100), 'minecraft:flint'])
-	  event.recipes.create.filling('kubejs:carpet_fluid',['minecraft:glass_bottle',Fluid.of('kubejs:carpet_fluid')])
-	  event.recipes.create.emptying(['minecraft:glass_bottle',Fluid.of('kubejs:carpet_fluid')],'kubejs:carpet_fluid')
-	  event.recipes.create.filling('kubejs:unstable_compound',['minecraft:glass_bottle',Fluid.of('kubejs:unstable_compound')])
-	  event.recipes.create.emptying(['minecraft:glass_bottle',Fluid.of('kubejs:unstable_compound')],'kubejs:unstable_compound')
-	  event.recipes.create.filling('kubejs:almond_water_can',['kubejs:empty_almond_water_can',Fluid.of('kubejs:almond_water')])
-	  event.recipes.create.emptying(['kubejs:empty_almond_water_can',Fluid.of('kubejs:almond_water')],'kubejs:almond_water_can')
-	  event.recipes.create.filling('kubejs:liquid_pain_can_hidden',['kubejs:empty_almond_water_can',Fluid.of('kubejs:liquid_pain')])
-	  event.recipes.create.emptying(['kubejs:empty_almond_water_can',Fluid.of('kubejs:liquid_pain')],'kubejs:liquid_pain_can_hidden')
+    event.recipes.create.mixing(Fluid.of('kubejs:carpet_fluid', 250), [Fluid.of('minecraft:water', 250), 'kubejs:cut_carpet'])
+    event.recipes.create.mixing(Fluid.of('kubejs:almond_water', 250), [Fluid.of('kubejs:carpet_fluid', 250), 'neapolitan:dried_vanilla_pods'])
+    event.recipes.create.mixing(Fluid.of('kubejs:unstable_compound', 250), [Fluid.of('kubejs:carpet_fluid', 250), 'thermal:redstone_mushroom_spores'])
+    event.recipes.create.mixing(Fluid.of('kubejs:liquid_pain', 250), [Fluid.of('kubejs:almond_water', 250), Fluid.of('kubejs:unstable_compound', 250)])
+    event.recipes.create.mixing('minecraft:gunpowder', [Fluid.of('kubejs:liquid_pain', 250), 'minecraft:flint'])
+	  event.recipes.create.filling('kubejs:carpet_fluid',['minecraft:glass_bottle',Fluid.of('kubejs:carpet_fluid', 250)])
+	  event.recipes.create.emptying(['minecraft:glass_bottle',Fluid.of('kubejs:carpet_fluid', 250)],'kubejs:carpet_fluid')
+	  event.recipes.create.filling('kubejs:unstable_compound',['minecraft:glass_bottle',Fluid.of('kubejs:unstable_compound', 250)])
+	  event.recipes.create.emptying(['minecraft:glass_bottle',Fluid.of('kubejs:unstable_compound', 250)],'kubejs:unstable_compound')
+	  event.recipes.create.filling('kubejs:almond_water_can',['kubejs:empty_almond_water_can',Fluid.of('kubejs:almond_water', 250)])
+	  event.recipes.create.emptying(['kubejs:empty_almond_water_can',Fluid.of('kubejs:almond_water', 250)],'kubejs:almond_water_can')
+	  event.recipes.create.filling('kubejs:liquid_pain_can_hidden',['kubejs:empty_almond_water_can',Fluid.of('kubejs:liquid_pain', 250)])
+	  event.recipes.create.emptying(['kubejs:empty_almond_water_can',Fluid.of('kubejs:liquid_pain', 250)],'kubejs:liquid_pain_can_hidden')
 	  event.shapeless("kubejs:unstable_compound", ["thermal:redstone_mushroom_spores","kubejs:carpet_fluid"])		
 	} catch (error) {} //this would cut off the module if it failed. maybe displaying the reason in the config?
 }

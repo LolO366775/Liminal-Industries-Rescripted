@@ -24,7 +24,7 @@ function get_falling_lamp_conversion(lamp){
 BlockEvents.rightClicked(event => {
 	let lamp = event.getBlock()
 	if (lamp.hasTag("kubejs:ceilling_lamps")) {
-		if (event.getItem() == "kubejs:crowbar") {
+		if (event.getItem().hasTag("kubejs:crowbars")) {
 			crowbar_ceiling_lamp_event(event)
 		}
 	} else if (lamp.getId() == "kubejs:crimsite_lamp") {
@@ -42,7 +42,7 @@ function crowbar_ceiling_lamp_event(event){
 		if (lamp.down.id !== 'minecraft:air' &&
         lamp.down.id !== 'torchmaster:invisible_light')
         return
-		if (0.2 >= Math.random()) {
+		if (0.2 >= Math.random() && event.item.getId() != "kubejs:dark_steel_crowbar") {
 			event.item.shrink(1)
 			event.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:item.shield.break","blocks",0.5,0)
 			event.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.zombie.attack_iron_door","blocks",0.5,1)

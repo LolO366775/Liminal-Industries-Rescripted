@@ -9,6 +9,46 @@ function block_registry_grid_blocks(event) {
     .unbreakable()
 	.tagBlock('wither_immune')
 
+	event.create('metal_frame_laser','cardinal')
+	.fullBlock(true)
+	.mapColor("color_black")
+	.soundType("stone")
+    .unbreakable()
+	.tagBlock('wither_immune')
+
+	event.create('metal_frame_vent')
+	.fullBlock(true)
+	.mapColor("color_black")
+	.soundType("stone")
+    .unbreakable()
+	.tagBlock('wither_immune')
+
+	event.create('metal_frame_laser_beam','cardinal')
+	.fullBlock(true)
+	.mapColor("color_black")
+	.soundType("stone")
+    .unbreakable()
+	.tagBlock('wither_immune')
+	.transparent(true)
+	.defaultCutout()
+	.defaultTranslucent()
+	.property(BlockProperties.HALF)
+	.noItem()
+	.noCollision()
+	.box(0,0,0,0,0,0)
+
+	event.create('entrance_frame')
+	.fullBlock(true)
+	.mapColor("color_black")
+	.soundType("stone")
+    .unbreakable()
+	.tagBlock('wither_immune')
+	.transparent(true)
+	.defaultCutout()
+	.defaultTranslucent()
+	.noCollision()
+	//.box(0,0,0,0,0,0)
+
 	event.create('holographic_bedrock')
 	.fullBlock(true)
 	.material("stone")
@@ -33,8 +73,8 @@ function block_registry_grid_blocks(event) {
 	.modelJson = {
   		"parent": "minecraft:block/cube_bottom_top",
   		"textures": {
-    		"top": "kubejs:block/carpet",
-    		"bottom": "kubejs:block/ceilling",
+    		"top": "kubejs:block/holographic_bedrock",
+    		"bottom": "kubejs:block/holographic_bedrock",
     		"side": "kubejs:block/holographic_wallpaper"
   		}
 	}

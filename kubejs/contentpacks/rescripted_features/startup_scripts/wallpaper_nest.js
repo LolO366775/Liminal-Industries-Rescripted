@@ -1,6 +1,6 @@
 StartupEvents.registry('block', event => {
 	
-	event.create('wallpaper_nest','cardinal').displayName('Wallpaper Nest')
+	event.create('wallpaper_nest').displayName('Wallpaper Nest')
 	.fullBlock(true)
 	.material("wood")
 	.soundType("cherry_wood")
@@ -13,6 +13,20 @@ StartupEvents.registry('block', event => {
 			global.tick_wallpaper_nest(entity)
 		})
 	})
+    .placementState(c =>{
+		c.set(BlockProperties.AGE_3, 0)
+		c.set(BlockProperties.LEVEL_HONEY, 0)
+	})
+	.defaultState(c =>{
+		c.set(BlockProperties.AGE_3, 0)
+		c.set(BlockProperties.LEVEL_HONEY, 0)
+	})
+    .item(item => 
+		item.modelJson({
+			"parent": "kubejs:block/nest/nest_0"
+		})
+	)
+    //these need facing values... so I probably should make this a bordered wallpaper variant with multi-part. maybe not have it rotatable for now?
 	.blockstateJson = {
         "variants": {
 			"age=0,honey_level=0": {
@@ -89,7 +103,7 @@ StartupEvents.registry('block', event => {
             }
     	}
 	}
-	event.create('wallpaper_nest_perm','cardinal').displayName('Wallpaper Nest (Permanent)')
+	event.create('wallpaper_nest_perm').displayName('Wallpaper Nest (Permanent)')
 	.fullBlock(true)
 	.material("wood")
 	.soundType("cherry_wood")
@@ -97,6 +111,19 @@ StartupEvents.registry('block', event => {
 	.tagBlock('wither_immune')
 	.property(BlockProperties.AGE_3)
 	.property(BlockProperties.LEVEL_HONEY)
+    .placementState(c =>{
+		c.set(BlockProperties.AGE_3, 0)
+		c.set(BlockProperties.LEVEL_HONEY, 0)
+	})
+	.defaultState(c =>{
+		c.set(BlockProperties.AGE_3, 0)
+		c.set(BlockProperties.LEVEL_HONEY, 0)
+	})
+    .item(item => 
+		item.modelJson({
+			"parent": "kubejs:block/nest/nest_0"
+		})
+	)
 	.blockstateJson = {
         "variants": {
 			"age=0,honey_level=0": {

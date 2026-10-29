@@ -1,0 +1,23 @@
+{
+   "loader": "fusion:model",
+   "type": "connecting",
+   "connections": [
+      {
+        "type": "match_block",
+        "block": "kubejs:stripped_wallpaper"
+      },
+      {
+        "type": "match_block",
+        "block": "kubejs:wallpaper_nest"
+      },
+      {
+        "type": "match_block",
+        "block": "kubejs:wallpaper_nest_perm"
+      },
+      {
+        "type": "match_block",
+        "block": "kubejs:stripped_wallpaper_perm"
+      }
+   ],
+   "parent": "minecraft:block/orientable_with_bottom"
+}

@@ -1,4 +1,5 @@
-LevelEvents.tick("backrooms:infinite_staircase",event => {
+//Will be turned back on when the stairwell dimension is created
+/*LevelEvents.tick("backrooms:infinite_staircase",event => {
 	let level = event.getLevel()
 	let players = level.getPlayers()
 	players.forEach(element => {
@@ -12,7 +13,7 @@ LevelEvents.tick("backrooms:infinite_staircase",event => {
 		}
 
 	})
-})
+})*/
 /**
 * @param {Internal.ServerPlayer} player
 */

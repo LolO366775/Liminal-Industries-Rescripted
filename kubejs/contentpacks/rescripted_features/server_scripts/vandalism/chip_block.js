@@ -31,7 +31,6 @@ function chip_tiles(floor,chance,player,result_block,result_item,face){
 function left_block_chipping_event(event,result_block,result_item,always){
     let floor = event.getBlock()
     let tool = event.getItem()
-    let tool_id = tool.getId()
     let player = event.getPlayer()
     let chance = 1
     let face = event.facing
@@ -43,14 +42,14 @@ function left_block_chipping_event(event,result_block,result_item,always){
         }
     }
     if (player.isFake()) {
-  	    if (tool_id == "kubejs:crowbar") {
+  	    if (tool.hasTag("kubejs:crowbars")) {
             chip_tiles(floor,chance,player,result_block,result_item,face)
 	    } else if (tool.hasTag("minecraft:pickaxes")) {
             chip_tiles(floor,chance,player,result_block,result_item,face)
             chipping_damage_tool(tool,player,1)
         }
     } else if (player.attackStrengthTicker > 15) {
-        if (tool_id == "kubejs:crowbar") {
+        if (tool.hasTag("kubejs:crowbars")) {
             chip_tiles(floor,chance,player,result_block,result_item,face)
 	    } else if (tool.hasTag("minecraft:pickaxes")) {
             chip_tiles(floor,chance,player,result_block,result_item,face)
@@ -75,14 +74,14 @@ function right_block_chipping_event(event,result_block,result_item,always){
         chance = 0.25
     }
     if (player.isFake()) {
-  	    if (tool_id == "kubejs:crowbar") {
+  	    if (tool.hasTag("kubejs:crowbars")) {
             chip_tiles(floor,chance,player,result_block,result_item,face)
 	    } else if (tool.hasTag("minecraft:pickaxes")) {
             chip_tiles(floor,chance,player,result_block,result_item,face)
             chipping_damage_tool(tool,player,1)
         }
     } else {
-        if (tool_id == "kubejs:crowbar") {
+        if (tool.hasTag("kubejs:crowbars")) {
             chip_tiles(floor,chance,player,result_block,result_item,face)
             player.addItemCooldown(tool_id,20)
 	    } else if (tool.hasTag("minecraft:pickaxes")) {

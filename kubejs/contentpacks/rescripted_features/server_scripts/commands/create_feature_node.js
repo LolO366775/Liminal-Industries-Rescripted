@@ -225,6 +225,14 @@ ServerEvents.commandRegistry(event => {
 				create_feature_node_command(ctx,position,"waystone","waystone_type","default")
 				return 1
             })
+		).then(Commands.literal("pot")
+		.requires(source => source.hasPermission(2))
+			.executes(ctx => {
+				/** @type {Internal.Vector3d} */
+            	const position = Arguments.VEC3.getResult(ctx, "node_pos")
+				create_feature_node_command(ctx,position,"pot","none","none")
+				return 1
+            })
 		)
 	))))
 })
