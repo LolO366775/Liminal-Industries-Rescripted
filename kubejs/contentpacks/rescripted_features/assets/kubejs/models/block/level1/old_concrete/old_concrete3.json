@@ -10,7 +10,7 @@
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
     "top": "kubejs:block/level_1/asphalt_floor",
-    "bottom": "kubejs:block/ceilling2",
+    "bottom": "kubejs:block/level_1/asphalt_floor",
     "side": "kubejs:block/level_1/old_concrete/old_concrete3"
   }
 }

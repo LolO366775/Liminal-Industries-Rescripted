@@ -296,10 +296,6 @@ ServerEvents.tags('item', event => {
 	event.add('forge:tools/axes', '#minecraft:axes')
 	event.add('forge:tools/knives', 'tconstruct:dagger')
 
-	event.add('forge:tools/knives', 'kubejs:wooden_knife')
-	event.add('farmersdelight:straw_harvesters', 'kubejs:wooden_knife')
-	event.add('farmersdelight:tools/knives', 'kubejs:wooden_knife')
-
 	const mushrooms = event.get('botania:shimmering_mushrooms').getObjectIds()
   	mushrooms.forEach(mushrooms => {
     	event.removeAllTagsFrom(mushrooms)

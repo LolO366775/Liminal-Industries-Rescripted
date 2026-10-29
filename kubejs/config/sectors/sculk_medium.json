@@ -1,0 +1,10 @@
+{
+  "rooms": [
+	"#zero",
+	"#zero",
+	"#safe_small",
+	"#sculk_small",
+	"#safe_medium",
+	"#sculk_medium"
+  ]
+}
