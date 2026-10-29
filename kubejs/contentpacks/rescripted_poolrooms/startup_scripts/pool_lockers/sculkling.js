@@ -31,22 +31,12 @@ function locker_sculkling_tick(locker){
 	try {
 		if (half == "bottom") {
 			if (is_locker_not_dead(locker)) {
-				locker.level.server.runCommandSilent("say is locker not dead")
-				let open = locker.properties.get("open")
-				let hurt_immune = locker.properties.get("triggered")
+				//locker.level.server.runCommandSilent("say is locker not dead") //toggleable debug line
+				let open = are_sculkling_doors_open(locker)
 				let on_door_cooldown = (locker.getEntityData().getCompound("data").getInt("door_timer") > 0)
 				let aggro_dist = 10
-				/*if (hurt_immune == "true") {
-					let locker_id = locker.getId()
-					let facing = locker.properties.get("facing")
-					let locker_data = locker.getEntityData()
-					locker.properties.put("triggered","false")
-					//locker.set(locker_id,{"facing":facing,"half":half,"open":open,"triggered":false})
-					//locker.setEntityData(locker_data)
-				}*/
 				let player_nearby = is_player_nearby_locker(locker,aggro_dist)
-				locker.level.server.runCommandSilent("say " + open)
-				if (open == "true") {
+				if (open) {
 					sculkling_open_tick(locker,player_nearby,aggro_dist,on_door_cooldown)
 				}
 				if (player_nearby) {
@@ -58,9 +48,38 @@ function locker_sculkling_tick(locker){
 					reduce_locker_door_timer(locker)
 				}
 			}
-		}	
+		}
 	} catch (error) {
 		//locker.level.server.runCommandSilent("say " + error)
+	}
+}
+/**
+* @param {Internal.BlockContainerJS} locker
+*/
+function are_sculkling_doors_open(locker){
+	let locker_data = locker.getEntityData().getCompound("data")
+	let open_override = locker_data.getBoolean("open")
+	return open_override
+}
+/**
+* @param {Internal.BlockContainerJS} locker
+*/
+function sculkling_invincibility_frames(locker){
+	let locker_data = locker.getEntityData().getCompound("data")
+	let invincible_frames = locker_data.getInt("invincible_frames")
+	let is_invincible = (invincible_frames > 0)
+	if (is_invincible) {
+		invincible_frames--
+		locker_data.putInt("invincible_frames",invincible_frames)
+		let locker_id = locker.getId()
+		let facing = locker.properties.get("facing")
+		let half = locker.properties.get("half")
+		let open = are_sculkling_doors_open(locker)
+		let above = locker.getUp()
+		if (above.getId() == "kubejs:locker_sculkling") {
+			above.set(locker_id,{"facing":facing,"half":"top","open":open,"triggered":false})
+		}
+		locker.set(locker_id,{"facing":facing,"half":half,"open":open,"triggered":false})
 	}
 }
 /**
@@ -71,6 +90,7 @@ function locker_sculkling_tick(locker){
 */
 function sculkling_open_tick(locker,player_nearby,aggro_dist,on_door_cooldown){
 	let [pos_x,pos_y,pos_z] = [locker.getX(),locker.getY(),locker.getZ()]
+	sculkling_invincibility_frames(locker)
 	if (!player_nearby) {
 		locker_sculkling_doors(locker,false,10)
 	} else if (!on_door_cooldown) {
@@ -79,6 +99,44 @@ function sculkling_open_tick(locker,player_nearby,aggro_dist,on_door_cooldown){
 		let nearest_player = locker.level.getNearestPlayer(pos_x,pos_y,pos_z,aggro_dist,true)
 		if (nearest_player != null) {
 			locker_shoot_bullet(locker,nearest_player)
+		}
+		locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.warden.heartbeat","blocks",1,0.8)
+	} else {
+		locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.warden.heartbeat","blocks",1,0.8)
+	}
+}
+/**
+* @param {Internal.BlockContainerJS} locker
+* @param {Number} aggro_dist
+* @param {Boolean} on_door_cooldown
+*/
+function sculkling_nearby_player_tick(locker,aggro_dist,on_door_cooldown){
+	let open = locker.properties.get("open")
+	let is_open = (open == "true")
+	let [pos_x,pos_y,pos_z] = [locker.getX(),locker.getY(),locker.getZ()]
+	if (!is_open) {
+		if (is_locker_angry(locker)) {
+			if (!on_door_cooldown) {
+				sculkling_open_doors_and_roar(locker)
+			}
+		} else {
+			locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.warden.heartbeat","blocks",0.3,0)
+		}
+	}
+	locker_change_anger(locker,true)
+	locker_player_status_effects(locker,aggro_dist)
+}
+/**
+* @param {Internal.BlockContainerJS} locker
+*/
+function sculkling_open_doors_and_roar(locker){
+	locker_sculkling_doors(locker,true,10)
+	let [pos_x,pos_y,pos_z] = [locker.getX(),locker.getY(),locker.getZ()]
+	if (is_locker_not_dead(locker)) {
+		if (is_locker_pissed(locker)) {
+			locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.warden.roar","blocks",1,2)
+		} else {
+			locker.level.playSound(null,pos_x ,pos_y,pos_z,"minecraft:entity.warden.angry","blocks",1,2)
 		}
 		locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.warden.heartbeat","blocks",1,0.8)
 	} else {
@@ -137,11 +195,13 @@ function get_locker_facing_block(locker){
 function locker_sculkling_doors(locker,open,time){
 	let [pos_x,pos_y,pos_z] = [locker.getX() + 0.5,locker.getY() + 0.5,locker.getZ() + 0.5]
 	let facing = locker.properties.get("facing")
+	let triggered = locker.properties.get("triggered")
 	let above = locker.getUp()
 	if (above.getId() == "kubejs:locker_sculkling") {
-		above.set("kubejs:locker_sculkling",{"facing":facing,"half":"top","open":open,"triggered":false})
+		above.set("kubejs:locker_sculkling",{"facing":facing,"half":"top","open":open,"triggered":triggered})
 	}
-	locker.set("kubejs:locker_sculkling",{"facing":facing,"half":"bottom","open":open,"triggered":false})
+	locker.set("kubejs:locker_sculkling",{"facing":facing,"half":"bottom","open":open,"triggered":triggered})
+	locker.getEntityData().getCompound("data").putBoolean("open",open)
 	if (open) {
 		locker.getEntityData().getCompound("data").putInt("door_timer",time)
 		locker.level.playSound(null,pos_x ,pos_y,pos_z,"minecraft:entity.shulker.open","blocks",1,0)
@@ -167,6 +227,7 @@ function reduce_locker_door_timer(locker){
 * @param {boolean} increase
 */
 function locker_change_anger(locker,increase){
+	//locker.level.server.runCommandSilent("say change anger") //toggleable debug line
 	let locker_data = locker.getEntityData().getCompound("data")
 	let anger = locker_data.getInt("anger")
 	let anger_maxed = (anger >= 30)
@@ -174,13 +235,7 @@ function locker_change_anger(locker,increase){
 	let is_open = (open == "true")
 	if (increase) {
 		if (!anger_maxed) {
-			if (is_locker_angry(locker)) {
-				if (is_open) {
-					locker_increase_anger_or_roar(locker,is_open,anger)
-				}
-			} else {
-				locker_increase_anger_or_roar(locker,is_open,anger)
-			}
+			locker_increase_anger_or_roar(locker,is_open,anger)
 		}
 	} else if (anger > 0) {
 		anger--
@@ -196,18 +251,16 @@ function locker_increase_anger_or_roar(locker,is_open,anger){
 	let locker_data = locker.getEntityData().getCompound("data")
 	let [pos_x,pos_y,pos_z] = [locker.getX() + 0.5,locker.getY() + 0.5,locker.getZ() + 0.5]
 	anger++
-	//locker.level.server.runCommandSilent("say " + anger)
-	if (!is_locker_pissed(locker)) {
-		locker_data.putInt("anger",anger)
-		if (is_locker_pissed(locker)) {
-			locker.level.playSound(null,pos_x ,pos_y,pos_z,"minecraft:entity.warden.roar","blocks",1,2)
-		} else {
-			locker_increase_anger_roar_chance(locker,is_open)
-		}
+	if (anger == 6) {
+		locker.level.playSound(null,pos_x ,pos_y,pos_z,"minecraft:entity.warden.angry","blocks",1,2)
+		locker_sculkling_doors(locker,true,10)
+	} else if (anger == 10) {
+		locker.level.playSound(null,pos_x ,pos_y,pos_z,"minecraft:entity.warden.roar","blocks",1,2)
+		locker_sculkling_doors(locker,true,10)
 	} else {
-		locker_data.putInt("anger",anger)
 		locker_increase_anger_roar_chance(locker,is_open)
 	}
+	locker_data.putInt("anger",anger)
 }
 /**
 * @param {Internal.BlockContainerJS} locker
@@ -229,7 +282,7 @@ function locker_increase_anger_roar_chance(locker,is_open){
 }
 /**
 * @param {Internal.BlockContainerJS} locker
-* @param {Number} distance 
+* @param {Number} distance
 */
 function locker_player_status_effects(locker,distance){
 	let [pos_x,pos_y,pos_z] = [locker.getX() + 0.5,locker.getY() + 0.5,locker.getZ() + 0.5]
@@ -243,7 +296,7 @@ function locker_player_status_effects(locker,distance){
 }
 /**
 * @param {Internal.BlockContainerJS} locker
-* @param {Internal.Player} player 
+* @param {Internal.Player} player
 */
 function locker_give_player_effect(locker,player){
 	let open = locker.properties.get("open")

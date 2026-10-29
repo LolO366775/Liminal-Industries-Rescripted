@@ -3,8 +3,13 @@
 * @param {Internal.BlockRightClickedEventJS} event
 */
 global.right_click_locker_event = event => {
+	let click_face = event.getFacing()
+	let locker = event.getBlock()
+	let facing = locker.properties.get("facing")
+	if (click_face != facing) {
+		return 0
+	}
 	if (event.hand == "main_hand") {
-		let locker = event.getBlock()
 		if (locker.getId() == "kubejs:pool_locker_single") {
 			open_locker_with_crowbar(event)
 		} else if (locker.getId() == "kubejs:pool_locker_double") {
@@ -22,9 +27,9 @@ global.right_click_locker_event = event => {
 */
 function open_locker_with_crowbar(event){
 	let [pos_x,pos_y,pos_z] = [event.block.getX() + 0.5,event.block.getY(),event.block.getZ() + 0.5]
-	if (event.getItem() == "kubejs:crowbar") {
+	if (event.getItem().hasTag("kubejs:crowbars")) {
 		event.level.spawnParticles("minecraft:crit",false,pos_x,pos_y,pos_z,0.1,0.1,0.1,5,0.5)
-		if (coin_flip(0.1)) {
+		if (coin_flip(0.1) && item.getId() != "kubejs:dark_steel_crowbar") {
 			event.item.shrink(1)
 			event.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:item.shield.break","blocks",0.5,0)
 			event.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.zombie.attack_iron_door","blocks",0.5,1)
@@ -99,7 +104,7 @@ function collect_locker_loot(event){
 			steal_locker_cardboard_box(player,locker,false,false,false,false,towel_colour)
 		} else if (half == "top") {
 			if (is_towel_colour(towel_colour)) {
-				steal_locker_towel(player,locker,luck)
+				steal_locker_towel(locker,luck)
 			}
 		}
 	}
@@ -165,7 +170,6 @@ function open_locker(locker,from_sculker){
 		top.setEntityData({"data":{"luck":luck}})
 		bottom.setEntityData({"data":{"luck":luck}})
 	}
-
     return 1
 }
 /**
@@ -175,7 +179,11 @@ function open_locker(locker,from_sculker){
 function get_random_loot_item(luck){
 	let template_chance = 0.01 * (luck * 2)
 	let item_id = "minecraft:netherite_upgrade_smithing_template"
-	if (!coin_flip(template_chance)) {
+	if (coin_flip(template_chance)) {
+		Utils.rollChestLoot('backrooms:poolrooms/locker_lucky_loot').forEach(item => {
+			item_id = item.getId()
+		})
+	} else {
 		Utils.rollChestLoot('backrooms:poolrooms/locker_loot').forEach(item => {
 			item_id = item.getId()
 		})
@@ -200,6 +208,11 @@ function steal_locker_cardboard_box(player,locker,slot_0,slot_1,slot_2,slot_3,to
 	let luck = locker.getEntityData().getCompound("data").getInt("luck")
 	let from_sculker = locker.getEntityData().getCompound("data").getBoolean("from_sculker")
 	let cardboard_box = Item.of("minecraft:shulker_shell")
+	try {
+		Utils.rollChestLoot('backrooms:poolrooms/locker_sculkling_loot').forEach(item => {
+			cardboard_box = item.getId()
+		})		
+	} catch (error) {}
 	let [pos_x,pos_y,pos_z] = [locker.getX() + 0.5,locker.getY() + 0.5,locker.getZ() + 0.5]
 	if (!from_sculker) {
 		let loot_item = get_random_loot_item(luck,from_sculker)
@@ -237,19 +250,30 @@ function is_towel_colour(towel_colour){
 }
 
 /**
-* @param {Internal.Player} player
 * @param {Internal.BlockContainerJS} locker
 * @param {Number} luck
 */
-function steal_locker_towel(player,locker,luck){
+function steal_locker_towel(locker,luck){
 	let template_chance = 0.01 * (luck * 2)
 	let [pos_x,pos_y,pos_z] = [locker.getX() + 0.5,locker.getY(),locker.getZ() + 0.5]
 	let half = locker.properties.get("half")
 	let facing = locker.properties.get("facing")
 	if (coin_flip(template_chance)) {
-		locker.popItemFromFace(Item.of("minecraft:elytra",1),facing)
+		try {
+			Utils.rollChestLoot('backrooms:poolrooms/locker_lucky_towels_loot').forEach(item => {
+				locker.popItemFromFace(item.getId(),facing)
+			})			
+		} catch (error) {
+			locker.popItemFromFace(Item.of("minecraft:elytra",1),facing)
+		}
 	} else {
-		locker.popItemFromFace(Item.of("beachparty:beach_towel",1),facing)
+		try {
+			Utils.rollChestLoot('backrooms:poolrooms/locker_towels_loot').forEach(item => {
+				locker.popItemFromFace(item.getId(),facing)
+			})			
+		} catch (error) {
+			locker.popItemFromFace(Item.of("beachparty:beach_towel",1),facing)
+		}
 	}
 	locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:item.bundle.remove_one","blocks",1,1)
 	locker.set("kubejs:open_pool_locker_double",{"half":half,"facing":facing,"slot_0_occupied":false,"slot_1_occupied":false,"slot_2_occupied":false,"slot_3_occupied":false,"age":"25"})

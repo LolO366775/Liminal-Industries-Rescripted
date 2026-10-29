@@ -1,24 +1,5 @@
 {
   "rooms": [
-	"##zero1",
-	"##zero2",
-	"##zero3",
-	"##zero4",
-	"##zero5",
-	"##zero6",
-	"zero7",
-	"zero8",
-	"zero9",
-	"zero10",
-	"zero11",
-	"zero12",
-	"zero13",
-	"zero14",
-	"zero_andre6196",
-        "zero_copper1",
-        "##zero_dripping",
-        "##crosses",
-        "##crosses",
-        "##short_ceilling"
+	"#zero"
   ]
 }
