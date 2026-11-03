@@ -148,37 +148,6 @@ function sculkling_open_doors_and_roar(locker){
 * @param {Number} aggro_dist
 * @param {Boolean} on_door_cooldown
 */
-function sculkling_nearby_player_tick(locker,aggro_dist,on_door_cooldown){
-	let open = locker.properties.get("open")
-	let is_open = (open == "true")
-	let [pos_x,pos_y,pos_z] = [locker.getX(),locker.getY(),locker.getZ()]
-	if (!is_open) {
-		if (is_locker_angry(locker)) {
-			if (!on_door_cooldown) {
-				sculkling_open_doors_and_roar(locker)
-			}
-		} else {
-			locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.warden.heartbeat","blocks",0.3,0)
-		}
-	}
-	locker_change_anger(locker,true)
-	locker_player_status_effects(locker,aggro_dist)
-}
-/**
-* @param {Internal.BlockContainerJS} locker
-*/
-function sculkling_open_doors_and_roar(locker){
-	locker_sculkling_doors(locker,true,10)
-	let [pos_x,pos_y,pos_z] = [locker.getX(),locker.getY(),locker.getZ()]
-	if (is_locker_pissed(locker)) {
-		locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.warden.roar","blocks",1,2)
-	} else {
-		locker.level.playSound(null,pos_x ,pos_y,pos_z,"minecraft:entity.warden.angry","blocks",1,2)
-	}
-}
-/**
-* @param {Internal.BlockContainerJS} locker
-*/
 function get_locker_facing_block(locker){
 	let facing = locker.properties.get("facing")
 	if (facing == "north") {return locker.getNorth()}

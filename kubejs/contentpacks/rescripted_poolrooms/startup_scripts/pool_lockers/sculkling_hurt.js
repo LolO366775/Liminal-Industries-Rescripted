@@ -57,27 +57,6 @@ function pry_sculkling_with_crowbar(locker,hit_facing,item){
 * @param {Internal.Direction} hit_facing
 * @param {Internal.ItemStack} item
 */
-function pry_sculkling_with_crowbar(locker,hit_facing){
-	if (!is_sculkling_hit_front(locker,hit_facing)) {
-		return false
-	}
-	let [pos_x,pos_y,pos_z] = [locker.getX() + 0.5,locker.getY(),locker.getZ() + 0.5]
-	locker.level.spawnParticles("minecraft:crit",false,pos_x,pos_y,pos_z,0.1,0.1,0.1,5,0.5)
-	/*if (coin_flip(0.1)) {
-		item.shrink(1)
-		locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:item.shield.break","players",1,0)
-		locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.zombie.attack_iron_door","blocks",1,1)
-	} else {
-
-	}*/
-	locker_sculkling_hurt(locker,7)
-	sculkling_open_doors_and_roar(locker)
-	locker.level.playSound(null,pos_x,pos_y,pos_z,"minecraft:entity.zombie.attack_iron_door","blocks",1,2)
-	locker.level.spawnParticles("minecraft:damage_indicator", false, pos_x + 0.5, pos_y, pos_z + 0.5, 0.5, 0.5, 0.5, 20, 0)
-}
-
-
-
 /**
 * @param {Internal.BlockLeftClickedEventJS} event
 */
