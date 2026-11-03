@@ -88,11 +88,6 @@
 					type: "item"
 				}
 				{
-					id: "369158725F596C22"
-					item: "botania:alchemy_catalyst"
-					type: "item"
-				}
-				{
 					id: "21017909594FAFDD"
 					item: "immersiveengineering:raw_aluminum"
 					type: "item"

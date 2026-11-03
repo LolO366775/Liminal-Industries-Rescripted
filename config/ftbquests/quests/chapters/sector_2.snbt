@@ -1747,9 +1747,9 @@
 		{
 			dependencies: ["33C923AD98680D89"]
 			description: [
-				"The Apothecary Stand can brew potions without the need for blaze powder, instead only needed to be placed above a boiling crucible."
+				"The Apothecary Stand can brew potions without the need for blaze powder, instead only needed to be placed above a boiling crucible. It can only make weak potions, however."
 				""
-				"It can only make weak potions, however."
+				"Sprouting fungus can be used as a nether wart replacement in brewing."
 			]
 			icon: "eidolon:wooden_brewing_stand"
 			id: "474B4A4FF8860514"
@@ -1764,10 +1764,15 @@
 					item: "eidolon:crucible"
 					type: "item"
 				}
+				{
+					id: "6704A305361CC028"
+					item: "eidolon:fungus_sprouts"
+					type: "item"
+				}
 			]
 			title: "Budget Brewing"
 			x: -8.5d
-			y: 12.5d
+			y: 13.0d
 		}
 		{
 			dependencies: ["0E75315018995DB6"]
@@ -1878,7 +1883,7 @@
 				type: "item"
 			}]
 			title: "Sealed Chambers"
-			x: -10.5d
+			x: -10.0d
 			y: 16.5d
 		}
 		{
@@ -2218,6 +2223,37 @@
 			title: "Rose-Tinted Lamp"
 			x: 1.5d
 			y: 23.0d
+		}
+		{
+			dependencies: ["7BCE1818E6CC4553"]
+			description: [
+				"Ancient Pottery Sherds can be found within rooms sealed off by Strange Bricks."
+				""
+				"These sherds can be processed with pewder and arcane gold to make an ancient but powerful metal alloy."
+			]
+			icon: "minecraft:netherite_ingot"
+			id: "7DF4B0AAF76821D8"
+			subtitle: "The Mystery Solved"
+			tasks: [
+				{
+					id: "781989C3C07D650D"
+					item: "mekanism:dirty_netherite_scrap"
+					type: "item"
+				}
+				{
+					id: "6353A4EF19817C4F"
+					item: "minecraft:netherite_scrap"
+					type: "item"
+				}
+				{
+					id: "3F74814A99C3382F"
+					item: "minecraft:netherite_ingot"
+					type: "item"
+				}
+			]
+			title: "Ingot of the Ancients"
+			x: -12.5d
+			y: 16.5d
 		}
 	]
 	title: "Chapter 3"
