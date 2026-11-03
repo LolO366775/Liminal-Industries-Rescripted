@@ -892,7 +892,7 @@
 				"- Cardboards"
 				"- Plywood"
 				""
-				"It can also insta-burn flammable blocks placed ontop to create more ash. Sometimes, the burner may cause an open flame."
+				"It can also insta-burn flammable blocks placed around it's top to create more ash. Sometimes, the burner may cause an open flame."
 			]
 			id: "2439F25BC57B0027"
 			subtitle: "Few open flames"

@@ -808,11 +808,7 @@
 		}
 		{
 			dependencies: ["16BED30DF56C2600"]
-			description: [
-				"When a Shadowgem Block is right-clicked with Chromatic Compound, the item will change into Shadow Steel."
-				""
-				"The block does not get consumed."
-			]
+			description: ["Shadow Steel can be made via mana conversion, using a Shadow Gem block as a catalyst, when placed underneath the mana pool."]
 			icon: "create:shadow_steel"
 			id: "26F8FABDCAB3E581"
 			rewards: [{
@@ -1163,8 +1159,8 @@
 				}
 			]
 			title: "Spawning Elementals"
-			x: 7.5d
-			y: 17.0d
+			x: 6.5d
+			y: 17.5d
 		}
 		{
 			dependencies: ["4ECED89E0795DE4E"]
@@ -1421,6 +1417,24 @@
 			title: "Flaxen Cheese"
 			x: 3.0d
 			y: 71.0d
+		}
+		{
+			dependencies: ["16BED30DF56C2600"]
+			description: [
+				"The brick stove from farmer's delight burns forever and does not run on fuel. It can also be used as a low-heat source."
+				""
+				"No more feeding basic burners!"
+			]
+			id: "13FDC844CD487E40"
+			subtitle: "No Fuel Burner"
+			tasks: [{
+				id: "29B39D36ACECDB1F"
+				item: "farmersdelight:stove"
+				type: "item"
+			}]
+			title: "Low-Heated Stove"
+			x: -6.0d
+			y: 17.5d
 		}
 	]
 	title: "Chapter 5"

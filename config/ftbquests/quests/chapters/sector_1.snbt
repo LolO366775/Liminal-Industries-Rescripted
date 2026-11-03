@@ -656,6 +656,11 @@
 		}
 		{
 			dependencies: ["74DC667B840746B0"]
+			description: [
+				"Guide books from various mods can be crafted from one another."
+				""
+				"The Eccentric Tome can be used to store these books in one place for easy access via crafting."
+			]
 			icon: {
 				Count: 1
 				id: "eccentrictome:tome"
@@ -736,92 +741,22 @@
 			}
 			id: "32CA69C5AF2D65AA"
 			rewards: [{
-				id: "407CE8F83560743E"
-				item: {
-					Count: 1
-					id: "eccentrictome:tome"
-					tag: {
-						Enchantments: [ ]
-						"eccentrictome:mods": {
-							actuallyadditions: {
-								0: {
-									Count: 1b
-									id: "actuallyadditions:booklet"
-								}
-							}
-							ae2: {
-								0: {
-									Count: 1b
-									id: "ae2:guide"
-									tag: {
-										Enchantments: [ ]
-									}
-								}
-							}
-							botania: {
-								0: {
-									Count: 1b
-									id: "botania:lexicon"
-								}
-							}
-							eidolon: {
-								0: {
-									Count: 1b
-									id: "eidolon:codex"
-									tag: {
-										Enchantments: [ ]
-									}
-								}
-							}
-							ftbquests: {
-								0: {
-									Count: 1b
-									id: "ftbquests:book"
-									tag: {
-										Enchantments: [ ]
-									}
-								}
-							}
-							immersiveengineering: {
-								0: {
-									Count: 1b
-									id: "immersiveengineering:manual"
-								}
-							}
-							patchouli: {
-								0: {
-									Count: 1b
-									id: "patchouli:guide_book"
-									tag: {
-										"patchouli:book": "patchouli:summoning"
-									}
-								}
-								1: {
-									Count: 1b
-									id: "patchouli:guide_book"
-									tag: {
-										Enchantments: [ ]
-										"patchouli:book": "patchouli:reality_frame"
-									}
-								}
-							}
-							tconstruct: {
-								0: {
-									Count: 1b
-									id: "tconstruct:materials_and_you"
-								}
-							}
-						}
-						"eccentrictome:version": 1
-					}
-				}
+				id: "6BD11A3A7FC825DF"
+				item: "ftbquests:book"
 				type: "item"
 			}]
 			subtitle: "I wish for knowledge"
 			tasks: [{
-				id: "7FCD69F562A86552"
-				title: "I wish for knowledge"
-				type: "checkmark"
+				id: "359B1C82EBC4FA4A"
+				item: {
+					Count: 1
+					id: "eccentrictome:tome"
+					tag: {
+						"eccentrictome:items": [ ]
+						"eccentrictome:version": 2
+					}
+				}
+				type: "item"
 			}]
 			title: "Eccentric Tome"
 			x: -2.5d
@@ -946,6 +881,12 @@
 				}
 				{
 					count: 3
+					id: "11C9CBED29153827"
+					item: "minecraft:paper"
+					type: "item"
+				}
+				{
+					count: 3
 					id: "03E25024C524F14D"
 					item: "exposure:photograph_frame"
 					type: "item"
@@ -1058,6 +999,11 @@
 			dependencies: ["0ABA2F30CF283A8E"]
 			description: ["Baskets can be used for early game item collection, much like hoppers, and can be placed facing any direction."]
 			id: "76BAA0060B7750A5"
+			rewards: [{
+				id: "2D9BBF64CA0751B3"
+				item: "woodenhopper:wooden_hopper"
+				type: "item"
+			}]
 			subtitle: "Aggressive Sucking"
 			tasks: [{
 				id: "4AFCC2BD5DB1A400"
@@ -1308,7 +1254,11 @@
 		}
 		{
 			dependencies: ["2FD58013123EFE42"]
-			description: ["Flint knives last longer than wood ones. There are multiple ways to get flint pretty early on."]
+			description: [
+				"Flint knives last longer than wood ones. There are multiple ways to get flint pretty early on."
+				""
+				"Chopping concrete pieces on a cutting board is one way."
+			]
 			id: "26EDE5F51B673C29"
 			subtitle: "Getting an upgrade"
 			tasks: [{
@@ -1354,6 +1304,37 @@
 			title: "Walkie-Talkie"
 			x: 5.0d
 			y: -1.5d
+		}
+		{
+			dependencies: ["154EA3B6DA433B32"]
+			description: [
+				"Photos taken within the backrooms hold strange energies of memory."
+				""
+				"Maybe they can help you remember where you died?"
+			]
+			icon: "exposure:photograph"
+			id: "4068F56FEFA22D50"
+			rewards: [{
+				id: "34A0AFFEFA0CFCAF"
+				item: "exposure:album"
+				type: "item"
+			}]
+			subtitle: "Remembering the lost"
+			tasks: [
+				{
+					id: "46C35687635CDB19"
+					item: "exposure:photograph"
+					type: "item"
+				}
+				{
+					id: "3E25168E3D47B457"
+					item: "minecraft:recovery_compass"
+					type: "item"
+				}
+			]
+			title: "Powers of Memory"
+			x: 7.5d
+			y: 3.5d
 		}
 	]
 	title: "Chapter 1"

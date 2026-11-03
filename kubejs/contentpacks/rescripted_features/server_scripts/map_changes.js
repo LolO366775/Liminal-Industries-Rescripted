@@ -5,10 +5,10 @@ ServerEvents.recipes(event => {
 	event.remove({id:"minecraft:compass"})
 	event.shaped(
 		'supplementaries:altimeter',
-		[ 
-		' N ', 
+		[
+		' N ',
 		'NBN',
-		' N '  
+		' N '
 		],{
 		  N: 'eidolon:arcane_gold_nugget',
 		  B: 'kubejs:battery',
@@ -16,10 +16,10 @@ ServerEvents.recipes(event => {
 	)
 	event.shaped(
 		'compass',
-		[ 
-		' S ', 
+		[
+		' S ',
 		'SBS',
-		' S '  
+		' S '
 		],{
 		  S: 'kubejs:scrap',
 		  B: 'kubejs:battery',
@@ -27,10 +27,10 @@ ServerEvents.recipes(event => {
 	)
 	event.shaped(
 		'supplementaries:slice_map',
-		[ 
-		'WWW', 
+		[
+		'WWW',
 		'WCW',
-		'WWW'  
+		'WWW'
 		],{
 		  W: 'kubejs:wallpaper',
 		  C: '#chalk:chalks',
@@ -43,10 +43,10 @@ ServerEvents.recipes(event => {
     ]).transitionalItem('kubejs:wallpaper').loops(8)
 	event.shaped(
 		'supplementaries:globe',
-		[ 
-		' N ', 
+		[
+		' N ',
 		' CN',
-		' I '  
+		' I '
 		],{
 		  I: 'eidolon:arcane_gold_ingot',
 		  N: 'eidolon:arcane_gold_nugget',
@@ -55,5 +55,5 @@ ServerEvents.recipes(event => {
 	)
 	event.remove({id:"pocketgps:gps"})
 	event.remove({id:"map_atlases:craft_atlas"})
-	event.shapeless('map_atlases:atlas', ['endrem:lost_eye','minecraft:book'])
+  event.shapeless('map_atlases:atlas', ['endrem:lost_eye', 'minecraft:book'])
 })
