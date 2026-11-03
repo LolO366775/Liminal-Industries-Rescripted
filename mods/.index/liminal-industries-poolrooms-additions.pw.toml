@@ -1,0 +1,18 @@
+filename = 'lipoolroomsadditions-1.0.6-forge-1.20.1.jar'
+name = 'Liminal Industries - Poolrooms Additions'
+side = 'server'
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'LI - Poolrooms Additions V1.0.6'
+
+[download]
+hash = 'b1d5ab8977a7bae01f1dd469c5b9b9dc53b70cbb'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7370860
+project-id = 1403982

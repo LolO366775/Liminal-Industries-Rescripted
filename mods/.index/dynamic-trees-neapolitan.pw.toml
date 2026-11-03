@@ -1,0 +1,25 @@
+filename = 'DynamicTreesNeapolitan-1.20.1-1.3.2.jar'
+name = 'Dynamic Trees - Neapolitan'
+side = ''
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'DynamicTreesNeapolitan-1.20.1-1.3.2.jar'
+
+[download]
+hash = 'cb815ee2cddba0ca3ad6f413d72f0428637cf0f4'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5741167
+project-id = 508225
+
+[[x-prismlauncher-dependencies]]
+addonId = '382016'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '252818'
+type = 'REQUIRED'

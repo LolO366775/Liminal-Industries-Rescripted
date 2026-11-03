@@ -1,0 +1,25 @@
+filename = 'TConstruct-1.20.1-3.10.0.67.jar'
+name = 'Tinkers Construct'
+side = 'server'
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'Engineering Update (3.10.0.67) for 1.20.1'
+
+[download]
+hash = '346580994da79291439aea244ec003173fc009db'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6603344
+project-id = 74072
+
+[[x-prismlauncher-dependencies]]
+addonId = '238222'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = '74924'
+type = 'REQUIRED'

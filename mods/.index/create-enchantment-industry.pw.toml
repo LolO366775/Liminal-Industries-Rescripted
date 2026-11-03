@@ -1,0 +1,21 @@
+filename = 'create_enchantment_industry-1.3.2-for-create-6.0.4.jar'
+name = 'Create: Enchantment Industry'
+side = ''
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'CEI 1.3.2 for Create 1.20.1-6.0.4'
+
+[download]
+hash = '69c646642b6c7d97f7876cd847201c5d810b9e49'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6405940
+project-id = 688768
+
+[[x-prismlauncher-dependencies]]
+addonId = '328085'
+type = 'REQUIRED'

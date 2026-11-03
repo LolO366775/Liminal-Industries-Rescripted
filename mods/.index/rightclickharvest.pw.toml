@@ -1,0 +1,25 @@
+filename = 'rightclickharvest-forge-4.6.0+1.20.1.jar'
+name = 'RightClickHarvest'
+side = ''
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'V4.6.0+1.20.1 (Forge 1.20.1)'
+
+[download]
+hash = '7b467d8d5c093d0ee5214a12ac2a198681f0f0e6'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7025572
+project-id = 452834
+
+[[x-prismlauncher-dependencies]]
+addonId = '419699'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '623764'
+type = 'REQUIRED'

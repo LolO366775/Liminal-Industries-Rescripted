@@ -1,0 +1,33 @@
+filename = 'simpleradio-forge-1.20.1-3.4.6.jar'
+name = 'Simple Voice Radio'
+side = ''
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20', '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '[FORGE] Simple Radio 1.20.1-3.4.6'
+
+[download]
+hash = 'd3aea4aa49e93e218732ed2c7afb2f44e980c679'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6486356
+project-id = 820070
+
+[[x-prismlauncher-dependencies]]
+addonId = '328085'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = '1019452'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '258371'
+type = 'OPTIONAL'
+
+[[x-prismlauncher-dependencies]]
+addonId = '687977'
+type = 'OPTIONAL'

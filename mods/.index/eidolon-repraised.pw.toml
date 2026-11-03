@@ -1,0 +1,25 @@
+filename = 'eidolon_repraised-1.20.1-0.3.8.15.jar'
+name = 'Eidolon : Repraised'
+side = ''
+x-prismlauncher-loaders = [ 'neoforge', 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'Eidolon:Repraised 1.20.1-0.3.8.15'
+
+[download]
+hash = '31dfa408c2e20d0379a73c451aa5690d7021c676'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5877358
+project-id = 870250
+
+[[x-prismlauncher-dependencies]]
+addonId = '309927'
+type = 'REQUIRED'
+
+[[x-prismlauncher-dependencies]]
+addonId = '238222'
+type = 'OPTIONAL'
