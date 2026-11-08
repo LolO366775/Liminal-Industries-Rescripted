@@ -46,9 +46,9 @@ function rescripted_recipes_item_nerfs(event){
 		E: 'enderio:ender_resonator'
 })
 	event.remove({mod: 'snad'})
-	event.recipes.create.filling('snad:snad',['minecraft:sand',Fluid.of('kubejs:unstable_compound', 1000)])
-	event.recipes.create.filling('snad:red_snad',['minecraft:red_sand',Fluid.of('kubejs:unstable_compound', 1000)])
-	event.recipes.create.filling('snad:suol_snad',['minecraft:soul_sand',Fluid.of('kubejs:unstable_compound', 1000)])
+	event.recipes.create.filling('snad:snad',['minecraft:sand',Fluid.of('kubejs:unstable_compound', 100)])
+	event.recipes.create.filling('snad:red_snad',['minecraft:red_sand',Fluid.of('kubejs:unstable_compound', 100)])
+	event.recipes.create.filling('snad:suol_snad',['minecraft:soul_sand',Fluid.of('kubejs:unstable_compound', 100)])
 	event.shapeless('snad:snad', ['minecraft:sand','kubejs:unstable_compound'])
 	event.shapeless('snad:red_snad', ['minecraft:red_sand','kubejs:unstable_compound'])
 	event.shapeless('snad:suol_snad', ['minecraft:soul_sand','kubejs:unstable_compound'])

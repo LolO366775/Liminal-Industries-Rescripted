@@ -5,6 +5,7 @@ function item_registery_scrapped_signs(event) {
 	let register_general = (id,display_name,model) => {
 		event.create(id)
 		.texture('layer0', `kubejs:item/signs/${model}`)
+		.tag('kubejs:traffic_signs')
 		.displayName(display_name)
 	}
 	register_general("arrow1_sign_item","Scrapped Sign","arrow1")
