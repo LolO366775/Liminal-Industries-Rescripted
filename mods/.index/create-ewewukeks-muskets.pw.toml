@@ -1,0 +1,18 @@
+filename = 'create-musketmod-1.20.1-forge-1.5.2.jar'
+name = "Create ewewukek's Muskets"
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'create-musketmod-1.20.1-forge-1.5.2.jar'
+
+[download]
+hash = 'f1b9771ff8180d24717de80c52d95fd619d25168'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 5685510
+project-id = 1095481

@@ -1,0 +1,10 @@
+{
+   "parent": "minecraft:block/orientable_with_bottom",
+   "textures": {
+     "bottom": "kubejs:block/metal_frame_laser_bottom",
+     "front": "kubejs:block/metal_frame_laser_front",
+     "side": "kubejs:block/metal_frame_laser_side",
+     "top": "kubejs:block/metal_frame_laser_top",
+     "particle": "kubejs:block/metal_frame_laser_side"
+   }
+}

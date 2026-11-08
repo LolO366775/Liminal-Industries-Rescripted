@@ -1,6 +1,5 @@
 {
   "rooms": [
-	"#common_rooms",
-	"#zero"
+	"#common_rooms"
   ]
 }

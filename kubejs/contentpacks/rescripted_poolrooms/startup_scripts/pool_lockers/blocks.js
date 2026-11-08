@@ -20,6 +20,7 @@ function register_locker(event,locker_id,type,display_name) {
 	builder.tagBlock('wither_immune')
 	builder.tagBlock('kubejs:pool_lockers')
 	builder.displayName(display_name)
+	builder.item(item => item.modelJson({"parent": `kubejs:item/pool_lockers/${type}`}))
 	builder.transparent(true)
 	builder.defaultCutout()
 	modify_locker_set_properties(builder,type)

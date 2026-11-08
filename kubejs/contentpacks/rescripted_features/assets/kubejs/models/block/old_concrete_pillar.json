@@ -2,7 +2,7 @@
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
     "top": "kubejs:block/level_1/old_concrete_pillar_top",
-    "bottom": "kubejs:block/old_concrete_pillar_top",
+    "bottom": "kubejs:block/level_1/old_concrete_pillar_top",
     "side": "kubejs:block/level_1/old_concrete_pillar"
   }
 }

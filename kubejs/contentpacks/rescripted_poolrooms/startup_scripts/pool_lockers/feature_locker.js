@@ -10,7 +10,7 @@ global.feature_locker_tick_event = entity => {
 /**
 * @param {Internal.BlockContainerJS} locker
 */
-function locker_sculkling_tick(locker){
+function feature_locker_tick(locker){
 	let level = locker.getLevel()
 	let half = locker.properties.get("half")
 	let facing = locker.properties.get("facing")

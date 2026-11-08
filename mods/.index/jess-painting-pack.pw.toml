@@ -1,0 +1,18 @@
+filename = '[FORGE] 1.20.1 ATM_PAINTING.jar'
+name = 'Atmospheric Paintings Pack for FORGE and FABRIC'
+side = ''
+x-prismlauncher-dependencies = []
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '[FORGE] 1.20.1'
+
+[download]
+hash = 'c2c1082742597f4cacfd5a06b0ed5786522f1caf'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 4791586
+project-id = 490008

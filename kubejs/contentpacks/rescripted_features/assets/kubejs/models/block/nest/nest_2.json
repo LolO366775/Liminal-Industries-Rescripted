@@ -1,0 +1,10 @@
+{
+   "parent": "kubejs:block/nest/parent",
+   "textures": {
+     "bottom": "kubejs:block/carpet",
+     "front": "kubejs:block/nest/nest_2",
+     "particle": "kubejs:block/stripped_wallpaper/yellow1/default/growth_0",
+     "side": "kubejs:block/stripped_wallpaper/yellow1/default/growth_0",
+     "top": "kubejs:block/carpet"
+   }
+}

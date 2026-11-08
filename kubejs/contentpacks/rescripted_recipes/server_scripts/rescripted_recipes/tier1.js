@@ -19,7 +19,7 @@ function rescripted_recipes_tier1(event){
         "kubejs:concrete_piece",
         "#minecraft:pickaxes", // tool
         [ // results
-            Item.of("minecraft:flint").withChance(0.1)
+            Item.of("minecraft:flint").withChance(0.2)
         ]
 	)
 	event.recipes.farmersdelight.cutting(

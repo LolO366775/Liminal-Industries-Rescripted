@@ -1,0 +1,21 @@
+filename = 'undergroundbeacons-1.20.1-1.0.jar'
+name = 'Underground Beacons'
+side = ''
+x-prismlauncher-loaders = [ 'neoforge', 'forge', 'quilt', 'fabric' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = '[Fabric/Forge/Neo] 1.20.1-1.0 | Underground Beacons'
+
+[download]
+hash = 'b0debe5dc95654e2a90c24fa9d67cee2213a66ac'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 6223210
+project-id = 1206250
+
+[[x-prismlauncher-dependencies]]
+addonId = '342584'
+type = 'REQUIRED'

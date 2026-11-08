@@ -2,7 +2,7 @@ StartupEvents.registry('item', event => {
   event.create('carpet_loaf').food(food => {
     food
       .hunger(7)
-      .saturation(3)
+      .saturation(3/7)
   })
 event.create('carpet_dough')
 })

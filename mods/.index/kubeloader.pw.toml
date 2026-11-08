@@ -1,0 +1,21 @@
+filename = 'kubeloader-0.0.8.jar'
+name = 'KubeLoader'
+side = 'server'
+x-prismlauncher-loaders = [ 'forge' ]
+x-prismlauncher-mc-versions = [ '1.20.1' ]
+x-prismlauncher-release-type = 'release'
+x-prismlauncher-version-number = 'kubeloader-0.0.8.jar'
+
+[download]
+hash = '292de06c5b6fc1d36ff8a2adb727b7e96d2bb677'
+hash-format = 'sha1'
+mode = 'metadata:curseforge'
+url = ''
+
+[update.curseforge]
+file-id = 7203073
+project-id = 1205072
+
+[[x-prismlauncher-dependencies]]
+addonId = '238086'
+type = 'EMBEDDED'

@@ -1,49 +1,12 @@
-StartupEvents.registry('block', event => {
-	event.create('controller_wallpaper','cardinal')
-	.fullBlock(true)
-	.material("wood")
-	.soundType("cherry_wood")
-    .unbreakable()
-	.tagBlock('wither_immune')
-	.blockEntity(entityInfo => {
-		entityInfo.serverTick(20, 0, entity => {
-			global.tick_controller_wallpaper(entity, false)
-		})
-	})
-
-	event.create('exposed_controller_wallpaper','cardinal')
-	.fullBlock(true)
-	.material("wood")
-	.soundType("cherry_wood")
-    .unbreakable()
-	.tagBlock('wither_immune')
-	.blockEntity(entityInfo => {
-		entityInfo.serverTick(20, 0, entity => {
-			global.tick_controller_wallpaper(entity, false)
-		})
-	})
-
-	event.create('controller_wallpaper_dead','cardinal')
-	.model('kubejs:block/controller_wallpaper_dead')
-	.fullBlock(true)
-	.material("wood")
-	.soundType("cherry_wood")
-    .unbreakable()
-	.tagBlock('wither_immune')
-
-	event.create('backup_generator','cardinal')
-	.fullBlock(true)
-	.material("wood")
-	.soundType("cherry_wood")
-	.unbreakable()
-	.tagBlock('wither_immune')
-	.blockEntity(entityInfo => {
-		entityInfo.serverTick(20, 0, entity => {
-			global.tick_controller_wallpaper(entity, true)
-		})
-	})
-	.displayName('Backup Generator')
-})
+/**
+* @param {Internal.BlockEntityJS} entity
+* @param {Boolean} backup
+*/
+global.tick_harvested_controller_wallpaper = (entity) => {
+	let wallpaper = entity.getBlock()
+	let facing = wallpaper.properties.get("facing")
+	wallpaper.set("kubejs:exposed_controller_wallpaper",{"facing":facing})
+}
 /**
 * @param {Internal.BlockEntityJS} entity
 * @param {Boolean} backup
